@@ -15,9 +15,9 @@ local lib = {}
 -- Version: 3.2
 
 -- Instances:
-if game:GetService("CoreGui"):FindFirstChild("Frostware") then
-  game.Players.LocalPlayer:kick("Please do not load more then 1 instance of Frostware. Thank you.")
-end
+--if game:GetService("CoreGui"):FindFirstChild("Frostware") then
+-- game.Players.LocalPlayer:kick("Please do not load more then 1 instance of Frostware. Thank you.")
+--end
 local Frostware = Instance.new("ScreenGui")
 local Background = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
