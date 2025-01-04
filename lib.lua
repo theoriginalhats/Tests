@@ -1694,7 +1694,6 @@ function insider:CreateToggle(name, name2, callback)
   local uis = game:GetService("UserInputService")
   local keybind = nil
 
-  -- GUI Elements
   local label = Instance.new("TextLabel")
   local background = Instance.new("Frame")
   local stroke = Instance.new('UIStroke')
@@ -1706,13 +1705,13 @@ function insider:CreateToggle(name, name2, callback)
   local UICorner_3 = Instance.new("UICorner")
   local TextLabel_2 = Instance.new("TextLabel")
 
-  -- GUI Properties
   background.Parent = Page1 
   background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
   background.BorderSizePixel = 0
   background.Position = UDim2.new(0.278, 0, 0.169, 0)
   background.Size = UDim2.new(0, 369, 0, 72)
 
+  label.Parent = background
   label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   label.BackgroundTransparency = 1.000
   label.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1736,6 +1735,7 @@ function insider:CreateToggle(name, name2, callback)
   UICorner.Parent = background
 
   btn.Name = "btn"
+  btn.Parent = background
   btn.BackgroundColor3 = Color3.fromRGB(103, 0, 2)
   btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
   btn.Position = UDim2.new(0.578562319, 0, 0.241006851, 0)
