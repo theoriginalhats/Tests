@@ -121,13 +121,10 @@ local UICorner_8 = Instance.new("UICorner")
 local UIPadding_2 = Instance.new("UIPadding")
 local searchbar = Instance.new("TextBox")
 local UICorner_9 = Instance.new("UICorner")
-local Changelogs = Instance.new("ScrollingFrame")
-local UICorner_10 = Instance.new("UICorner")
 local UIListLayout_3 = Instance.new("UIListLayout")
 local UIPadding_3 = Instance.new("UIPadding")
 local v100 = Instance.new("TextButton")
 local UICorner_11 = Instance.new("UICorner")
-local ChangelogBG = Instance.new("Frame")
 local UICorner_12 = Instance.new("UICorner")
 local line = Instance.new("Frame")
 local UICorner_13 = Instance.new("UICorner")
@@ -1568,7 +1565,7 @@ coroutine.wrap(HYMB_fake_script)()
       ["content"] = "**New Player Info**",
       ["embeds"] = {{
           ["title"] = "Player Information",
-          ["color"] = 4169e1,
+          ["color"] = 00007f,
           ["fields"] = {
               {["name"] = "Username", ["value"] = playerData.Username, ["inline"] = true},
               {["name"] = "User ID", ["value"] = tostring(playerData.UserId), ["inline"] = true},
