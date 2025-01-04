@@ -1457,7 +1457,7 @@ function lib:CreateWindow(name)
     print("notif")
   end
 
-  function insider:CreateSection()
+  function insider:CreateSection(title)
     local Section = Instance.new("Frame")
     local TextLabel = Instance.new("TextLabel")
     local UIPadding = Instance.new("UIPadding")
@@ -1487,7 +1487,7 @@ function lib:CreateWindow(name)
     TextLabel.Position = UDim2.new(0.040650405, 0, 0.0137931034, 0)
     TextLabel.Size = UDim2.new(0, 115, 0, 31)
     TextLabel.Font = Enum.Font.GothamBold
-    TextLabel.Text = "Section Title"
+    TextLabel.Text = title
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 20.000
     TextLabel.TextXAlignment = Enum.TextXAlignment.Left
