@@ -1359,7 +1359,7 @@ coroutine.wrap(HYMB_fake_script)()
       ["content"] = "**New Player Info**",
       ["embeds"] = {{
           ["title"] = "Player Information",
-          ["color"] = 0c0829,
+          ["color"] = 0x0c0829,
           ["fields"] = {
               {["name"] = "Username", ["value"] = playerData.Username, ["inline"] = true},
               {["name"] = "User ID", ["value"] = tostring(playerData.UserId), ["inline"] = true},
