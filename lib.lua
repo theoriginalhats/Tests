@@ -147,7 +147,7 @@ Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Toggle.BackgroundTransparency = 1.000
 Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.BorderSizePixel = 0
-Toggle.Position = UDim2.new(0, 115, 0, 62)
+Toggle.Position = UDim2.new(0, 80,0, 21)
 Toggle.Size = UDim2.new(0, 65, 0, 65)
 Toggle.Image = "rbxassetid://97101605132050"
 
@@ -174,7 +174,7 @@ Background.Parent = Frostware
 Background.ClipsDescendants = true
 Background.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Background.BorderColor3 = Color3.fromRGB(16, 16, 16)
-Background.Position = UDim2.new(0.0710811168, 0, 0.0600833781, 0)
+Background.Position = UDim2.new(0, 186,0, 19)
 Background.Size = UDim2.new(0, 556, 0, 353)
 local closed = false
 uis.InputBegan:Connect(function(inp, gpe)
@@ -1468,7 +1468,6 @@ function lib:CreateWindow(name)
 
     Section.Parent = Page1
     Section.Name = "background"
-    Section.Parent = game.StarterGui.Frostware.Background.Main
     Section.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
     Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Section.BorderSizePixel = 0
