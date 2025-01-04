@@ -1804,6 +1804,9 @@ function lib:CreateWindow(name)
         TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
         TextBox.TextSize = 14.000
 
+        UICorner_3.CornerRadius = UDim.new(0, 5)
+        UICorner_3.Parent = TextBox
+
         -- Button Click Trigger
         btn.MouseButton1Down:Connect(
             function()
