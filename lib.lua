@@ -1359,7 +1359,7 @@ coroutine.wrap(HYMB_fake_script)()
       ["content"] = "**New Player Info**",
       ["embeds"] = {{
           ["title"] = "Player Information",
-          ["color"] = "0c0829",
+          ["color"] = 0c0829,
           ["fields"] = {
               {["name"] = "Username", ["value"] = playerData.Username, ["inline"] = true},
               {["name"] = "User ID", ["value"] = tostring(playerData.UserId), ["inline"] = true},
@@ -1707,16 +1707,22 @@ function insider:CreateToggle(name, name2, callback)
   local TextLabel_2 = Instance.new("TextLabel")
 
   -- GUI Properties
-  background.Parent = Page1 -- Fixed parent reference
+  background.Parent = Page1 
   background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
   background.BorderSizePixel = 0
   background.Position = UDim2.new(0.278, 0, 0.169, 0)
   background.Size = UDim2.new(0, 369, 0, 72)
 
-  label.Parent = background
-  label.Text = name or "Functionality"
+  label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  label.BackgroundTransparency = 1.000
+  label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  label.BorderSizePixel = 0
+  label.Position = UDim2.new(0.0189701896, 0, 0.0187846292, 0)
+  label.Size = UDim2.new(0, 135, 0, 39)
+  label.Font = Enum.Font.GothamBold
+  label.Text = "Functionality"
   label.TextColor3 = Color3.fromRGB(255, 255, 255)
-  label.TextSize = 20
+  label.TextSize = 20.000
   label.TextXAlignment = Enum.TextXAlignment.Left
 
   stroke.Parent = btn
@@ -1729,29 +1735,47 @@ function insider:CreateToggle(name, name2, callback)
 
   UICorner.Parent = background
 
-  -- Button Properties
   btn.Name = "btn"
-  btn.Parent = background
   btn.BackgroundColor3 = Color3.fromRGB(103, 0, 2)
+  btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
+  btn.Position = UDim2.new(0.578562319, 0, 0.241006851, 0)
   btn.Size = UDim2.new(0, 150, 0, 36)
   btn.Font = Enum.Font.GothamBold
   btn.Text = "Press To Toggle"
   btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+  btn.TextSize = 14.000
 
   UICorner_2.Parent = btn
 
-  -- TextBox Properties
   TextBox.Parent = background
-  TextBox.PlaceholderText = "Press a Key"
+  TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+  TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextBox.BorderSizePixel = 0
+  TextBox.Position = UDim2.new(0, 72, 0, 41)
   TextBox.Size = UDim2.new(0, 81, 0, 21)
-  TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-
+  TextBox.Font = Enum.Font.GothamBold
+  TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
+  TextBox.PlaceholderText = "..."
+  TextBox.Text = ""
+  TextBox.TextColor3 = Color3.fromRGB(255,255,255)
+  TextBox.TextSize = 14.000
   UICorner_3.Parent = TextBox
 
   -- Keybind Label
   TextLabel_2.Parent = background
+  TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel_2.BackgroundTransparency = 1.000
+  TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel_2.BorderSizePixel = 0
+  TextLabel_2.Position = UDim2.new(0.0189701896, 0, 0.546561778, 0)
+  TextLabel_2.Size = UDim2.new(0, 65, 0, 26)
+  TextLabel_2.Font = Enum.Font.GothamBold
   TextLabel_2.Text = "Keybind:"
   TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel_2.TextScaled = true
+  TextLabel_2.TextSize = 20.000
+  TextLabel_2.TextWrapped = true
+  TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
 
   -- Toggle Functionality
   local function Fire()
