@@ -1751,27 +1751,58 @@ function lib:CreateWindow(name)
         UICorner.Parent = background
 
         TextLabel.Parent = background
-        TextLabel.Text = name or "Hello Frostware!"
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.Position = UDim2.new(0.0189701896, 0, 0.0326735191, 0)
         TextLabel.Size = UDim2.new(0, 135, 0, 39)
         TextLabel.Font = Enum.Font.GothamBold
+        TextLabel.Text = "Hello Frostware!"
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextSize = 20.000
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+        btn.Name = "btn"
         btn.Parent = background
-        btn.Text = bname or "Press Me"
+        btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+        btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
+        btn.Position = UDim2.new(0.562302232, 0, 0.143784627, 0)
         btn.Size = UDim2.new(0, 150, 0, 50)
         btn.Font = Enum.Font.GothamBold
+        btn.Text = "Press Me"
         btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        btn.TextSize = 14.000
 
         UICorner_2.Parent = btn
 
         TextLabel_2.Parent = background
+        TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel_2.BackgroundTransparency = 1.000
+        TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel_2.BorderSizePixel = 0
+        TextLabel_2.Position = UDim2.new(0.0189701896, 0, 0.546561778, 0)
+        TextLabel_2.Size = UDim2.new(0, 65, 0, 26)
+        TextLabel_2.Font = Enum.Font.GothamBold
         TextLabel_2.Text = "Keybind:"
         TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel_2.TextScaled = true
+        TextLabel_2.TextSize = 20.000
+        TextLabel_2.TextWrapped = true
+        TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
 
         TextBox.Parent = background
-        TextBox.PlaceholderText = "Press a Key"
+        TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+        TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextBox.BorderSizePixel = 0
+        TextBox.Position = UDim2.new(0, 72, 0, 41)
+        TextBox.Size = UDim2.new(0, 81, 0, 21)
+        TextBox.Font = Enum.Font.GothamBold
+        TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
+        TextBox.PlaceholderText = "..."
+        TextBox.Text = ""
         TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-        UICorner_3.Parent = TextBox
+        TextBox.TextSize = 14.000
 
         -- Button Click Trigger
         btn.MouseButton1Down:Connect(
