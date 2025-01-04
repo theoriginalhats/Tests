@@ -1507,7 +1507,7 @@ function lib:CreateWindow(name)
 
     local SectionLib = {}
 
-    function SectionLib:AddButton()
+    function SectionLib:AddButton(name, sname, callback)
         local callback = callback or function() end
         local background = Instance.new("Frame")
         local UICorner = Instance.new("UICorner")
