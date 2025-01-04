@@ -1737,7 +1737,7 @@ function lib:CreateWindow(name)
         local stroke = Instance.new("UIStroke")
         local keybind = nil
 
-        background.Parent = game.StarterGui.Frostware.Background.Main
+        background.Parent = Page1
         background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
         background.BorderColor3 = Color3.fromRGB(0, 0, 0)
         background.BorderSizePixel = 0
