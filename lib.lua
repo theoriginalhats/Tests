@@ -1707,7 +1707,7 @@ function insider:CreateToggle(name, name2, callback)
   local TextLabel_2 = Instance.new("TextLabel")
 
   -- GUI Properties
-  background.Parent = game.StarterGui.ScreenGui -- Fixed parent reference
+  background.Parent = Page1 -- Fixed parent reference
   background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
   background.BorderSizePixel = 0
   background.Position = UDim2.new(0.278, 0, 0.169, 0)
