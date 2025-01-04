@@ -1457,7 +1457,179 @@ function lib:CreateWindow(name)
     print("notif")
   end
 
-  function insider:CreateSection(name, title, search, content)
+  function insider:CreateSection()
+    local Section = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local UIPadding = Instance.new("UIPadding")
+    local UICorner = Instance.new("UICorner")
+    local UIListLayout = Instance.new("UIListLayout")
+    local UIPadding_2 = Instance.new("UIPadding")
+    local Stroke = Instance.new("UIStroke")
+
+    Section.Parent = Page1
+    Section.Name = "background"
+    Section.Parent = game.StarterGui.Frostware.Background.Main
+    Section.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+    Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Section.BorderSizePixel = 0
+    Section.Position = UDim2.new(0.0525059663, 0, 0.00699300691, 0)
+    Section.Size = UDim2.new(0, 369, 0, 125)
+    Section.AutomaticSize = Enum.AutomaticSize.XY
+
+    Stroke.Parent = Section
+    stroke.Thickness = .9
+
+    TextLabel.Parent = Section
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(0.040650405, 0, 0.0137931034, 0)
+    TextLabel.Size = UDim2.new(0, 115, 0, 31)
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = "Section Title"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextSize = 20.000
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    UIPadding.Parent = TextLabel
+    UIPadding.PaddingRight = UDim.new(0, 20)
+
+    UICorner.Parent = Section
+
+    UIListLayout.Parent = Section
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Padding = UDim.new(0, 13)
+
+    UIPadding_2.Parent = Section
+    UIPadding_2.PaddingBottom = UDim.new(0, 15)
+
+    local SectionLib = {}
+
+    function SectionLib:AddButton()
+        local callback = callback or function() end
+        local background = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local TextLabel = Instance.new("TextLabel")
+        local btn = Instance.new("TextButton")
+        local UICorner_2 = Instance.new("UICorner")
+        local TextLabel_2 = Instance.new("TextLabel")
+        local TextBox = Instance.new("TextBox")
+        local UICorner_3 = Instance.new("UICorner")
+        local stroke = Instance.new("UIStroke")
+
+        background.Parent = Section
+        background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+        background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        background.BorderSizePixel = 0
+        background.Position = UDim2.new(0.0390244573, 0, 0.317241371, 0)
+        background.Size = UDim2.new(0, 340, 0, 63)
+
+        stroke.Parent = background
+        stroke.Thickness = .9
+
+        UICorner.Parent = background
+
+        TextLabel.Parent = background
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.Position = UDim2.new(0.0349991731, 0, 0.0386258066, 0)
+        TextLabel.Size = UDim2.new(0, 135, 0, 31)
+        TextLabel.Font = Enum.Font.GothamBold
+        TextLabel.Text = "Hello Frostware!"
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextSize = 20.000
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+        local stroke1 = Instance.new("UIStroke")
+        btn.Name = "btn"
+        btn.Parent = background
+        btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+        btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
+        btn.Position = UDim2.new(0.602188349, 0, 0.159169361, 0)
+        btn.Size = UDim2.new(0, 130, 0, 43)
+        btn.Font = Enum.Font.GothamBold
+        btn.Text = "Press Me"
+        btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        btn.TextSize = 14.000
+
+        stroke1.Parent = btn
+        stroke1.Thickness = .7
+
+        UICorner_2.Parent = btn
+
+        TextLabel_2.Parent = background
+        TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel_2.BackgroundTransparency = 1.000
+        TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel_2.BorderSizePixel = 0
+        TextLabel_2.Position = UDim2.new(0.0307348818, 0, 0.530688822, 0)
+        TextLabel_2.Size = UDim2.new(0, 65, 0, 26)
+        TextLabel_2.Font = Enum.Font.GothamBold
+        TextLabel_2.Text = "Keybind:"
+        TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel_2.TextScaled = true
+        TextLabel_2.TextSize = 20.000
+        TextLabel_2.TextWrapped = true
+        TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+        TextBox.Parent = background
+        TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+        TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextBox.BorderSizePixel = 0
+        TextBox.Position = UDim2.new(0, 75, 0, 35)
+        TextBox.Size = UDim2.new(0, 81, 0, 21)
+        TextBox.Font = Enum.Font.GothamBold
+        TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
+        TextBox.PlaceholderText = "..."
+        TextBox.Text = ""
+        TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+        TextBox.TextSize = 14.000
+
+        UICorner_3.CornerRadius = UDim.new(0, 5)
+        UICorner_3.Parent = TextBox
+
+        btn.MouseButton1Down:Connect(
+            function()
+                pcall(callback)
+            end
+        )
+
+        -- Set Keybind from TextBox
+        TextBox.FocusLost:Connect(
+            function()
+                local inputText = TextBox.Text:upper()
+                if Enum.KeyCode[inputText] then
+                    keybind = Enum.KeyCode[inputText]
+                    print("Keybind set to: " .. inputText)
+                else
+                    print("Invalid Key")
+                end
+            end
+        )
+
+        uis.InputBegan:Connect(
+            function(input, typing)
+                if typing or not keybind then
+                    return
+                end
+                if input.KeyCode == keybind then
+                    pcall(callback)
+                end
+            end
+        )
+    end
+
+    return SectionLib
+end
+
+
+
+
+  function insider:CreateButtonSection(name, title, search, content)
     local Frame = Instance.new("Frame")
     local TextLabel = Instance.new("TextLabel")
     local UICorner = Instance.new("UICorner")
