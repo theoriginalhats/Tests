@@ -2886,6 +2886,54 @@ end
   return Signals
 end
 
+function insider:CreateDebugger(paragraph)
+  local Frame = Instance.new("Frame")
+  local TextLabel = Instance.new("TextLabel")
+  local UICorner = Instance.new("UICorner")
+  local TextLabel_2 = Instance.new("TextLabel")
+  local stroke = Instance.new("UIStroke")
+
+  Frame.Parent = Page1
+  Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+  Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  Frame.BorderSizePixel = 0
+  Frame.Position = UDim2.new(0.0572792366, 0, -0.108391605, 0)
+  Frame.Size = UDim2.new(0, 369, 0, 207)
+
+  stroke.Parent = Frame
+  stroke.Thickness = .9
+  
+  TextLabel.Parent = Frame
+  TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.BackgroundTransparency = 1.000
+  TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel.BorderSizePixel = 0
+  TextLabel.Position = UDim2.new(0.0189701896, 0, -5.32377126e-05, 0)
+  TextLabel.Size = UDim2.new(0, 90, 0, 39)
+  TextLabel.Font = Enum.Font.GothamBold
+  TextLabel.Text = "Debugger🗣️🔥🔥"
+  TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.TextSize = 20.000
+  TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+  
+  UICorner.Parent = Frame
+  
+  TextLabel_2.Parent = Frame
+  TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel_2.BackgroundTransparency = 1.000
+  TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel_2.BorderSizePixel = 0
+  TextLabel_2.Position = UDim2.new(0.0271002706, 0, 0.206421345, 0)
+  TextLabel_2.Size = UDim2.new(0, 341, 0, 46)
+  TextLabel_2.Font = Enum.Font.Gotham
+  TextLabel_2.Text = paragraph
+  TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel_2.TextSize = 18.000
+  TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+  TextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+  
+end
+
   return insider
 
 end
