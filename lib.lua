@@ -1427,6 +1427,7 @@ function lib:CreateWindow(name)
   Page1.Name = name
   Page1.Parent = Background
   Page1.Active = true
+  Page1.AutomaticCanvasSize = Enum.AutomaticSize.XY
   Page1.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
   Page1.BorderColor3 = Color3.fromRGB(16, 16, 16)
   Page1.Position = UDim2.new(0.234, 0,0.147, 0)
@@ -1446,22 +1447,6 @@ function lib:CreateWindow(name)
   UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
   UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
   UIListLayout.Padding = UDim.new(0, 15)
-
-  local padding = 10
-
-  local function updateCanvasSize()
-    local totalHeight = 0
-    for _, child in ipairs(Page1:GetChildren()) do
-        if child:IsA("GuiObject") then
-            totalHeight = totalHeight + child.AbsoluteSize.Y + padding
-        end
-    end
-    Page1.CanvasSize = UDim2.new(0, 0, 0, totalHeight + 2)
-  end
-
-Page1.ChildAdded:Connect(updateCanvasSize)
-updateCanvasSize()
-
 
 
 
