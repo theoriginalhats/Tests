@@ -1775,6 +1775,8 @@ function lib:CreateWindow(name)
     stroke.Parent = Frame
     stroke.Thickness = .9
 
+    UICorner_3.Parent = Frame
+
     TextLabel.Parent = Frame
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.BackgroundTransparency = 1.000
@@ -1958,7 +1960,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
   stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
   stroke.LineJoinMode = Enum.LineJoinMode.Round
   stroke.Thickness = .7
-  stroke2.Parent = background
+  stroke2.Parent = Frame
   stroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
   stroke2.LineJoinMode = Enum.LineJoinMode.Round
   stroke2.Thickness = .9
@@ -2789,6 +2791,90 @@ function insider:CreateDropdown(name, options, callback)
     end
 
     btn.MouseButton1Click:Connect(toggleDropdown)
+end
+
+function insider:CreateLabel(text)
+  local Frame = Instance.new("Frame")
+  local UICorner = Instance.new("UICorner")
+  local TextLabel = Instance.new("TextLabel")
+  local Stroke = Instance.new("UIStroke")
+
+
+  Frame.Parent = Page1
+  Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+  Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  Frame.BorderSizePixel = 0
+  Frame.Position = UDim2.new(0.0596658699, 0, 0.674825191, 0)
+  Frame.Size = UDim2.new(0, 369, 0, 43)
+  
+  UICorner.Parent = Frame
+  Stroke.Parent = Frame
+  Stroke.Thickness = .9
+  
+  TextLabel.Parent = Frame
+  TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.BackgroundTransparency = 1.000
+  TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel.BorderSizePixel = 0
+  TextLabel.Position = UDim2.new(0.0216802172, 0, 0.160421684, 0)
+  TextLabel.Size = UDim2.new(0, 353, 0, 29)
+  TextLabel.Font = Enum.Font.Gotham
+  TextLabel.Text = text
+  TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.TextSize = 18.000
+  TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+end
+
+function insider:CreateSignal(title, signalname, signal)
+  local Frame = Instance.new("Frame")
+  local TextLabel = Instance.new("TextLabel")
+  local UICorner = Instance.new("UICorner")
+  local TextLabel_2 = Instance.new("TextLabel")
+
+  Frame.Parent = Page1
+  Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+  Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  Frame.BorderSizePixel = 0
+  Frame.Position = UDim2.new(0.0596658699, 0, 0.430069923, 0)
+  Frame.Size = UDim2.new(0, 369, 0, 53)
+  
+  TextLabel.Parent = Frame
+  TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.BackgroundTransparency = 1.000
+  TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel.BorderSizePixel = 0
+  TextLabel.Position = UDim2.new(0.0298102982, 0, 0.118889578, 0)
+  TextLabel.Size = UDim2.new(0, 90, 0, 39)
+  TextLabel.Font = Enum.Font.GothamBold
+  TextLabel.Text = title
+  TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.TextSize = 20.000
+  TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+  
+  UICorner.Parent = Frame
+  
+  TextLabel_2.Parent = Frame
+  TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel_2.BackgroundTransparency = 1.000
+  TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel_2.BorderSizePixel = 0
+  TextLabel_2.Position = UDim2.new(0.558265567, 0, 0.113910317, 0)
+  TextLabel_2.Size = UDim2.new(0, 150, 0, 39)
+  TextLabel_2.Font = Enum.Font.Gotham
+  TextLabel_2.Text = signalname
+  TextLabel_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+  TextLabel_2.TextSize = 18.000
+  TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+  local Signals = {}
+
+  function Signals:ChangeSignal(value, name)
+    TextLabel_2.Text = name
+    TextLabel_2.TextColor3 = value and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+end
+
+  return Signals
 end
 
   return insider
