@@ -1423,6 +1423,7 @@ function lib:CreateWindow(name)
   local pad = Instance.new("UIPadding")
   pad.Parent = Page1
   pad.PaddingTop = UDim.new(0,6)
+  pad.PaddingBottom = UDim.new(0,15)
   UICorner5.Parent = Page1
   Page1.Name = name
   Page1.Parent = Background
