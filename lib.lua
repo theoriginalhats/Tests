@@ -1459,7 +1459,7 @@ function lib:CreateWindow(name)
     Page1.CanvasSize = UDim2.new(0, 0, 0, totalHeight + 2)
   end
 
-scrollingFrame.ChildAdded:Connect(updateCanvasSize)
+Page1.ChildAdded:Connect(updateCanvasSize)
 updateCanvasSize()
 
 
