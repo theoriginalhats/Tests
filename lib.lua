@@ -1447,6 +1447,22 @@ function lib:CreateWindow(name)
   UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
   UIListLayout.Padding = UDim.new(0, 15)
 
+  local padding = 10
+
+  local function updateCanvasSize()
+    local totalHeight = 0
+    for _, child in ipairs(Page1:GetChildren()) do
+        if child:IsA("GuiObject") then
+            totalHeight = totalHeight + child.AbsoluteSize.Y + padding
+        end
+    end
+    Page1.CanvasSize = UDim2.new(0, 0, 0, totalHeight + 2)
+  end
+
+scrollingFrame.ChildAdded:Connect(updateCanvasSize)
+updateCanvasSize()
+
+
 
 
 
@@ -2200,9 +2216,10 @@ end
     else
       searchbar.Visible = false
   end
-end
 
-  function insider:CreateSectionButton(name, sname, callback)
+  local Buttons = {}
+
+  function Buttons:AddButton(name, sname, callback)
     local callback = callback or function() end
     local btn = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
@@ -2231,6 +2248,7 @@ end
     end)
 
   end
+end
 
   function insider:CreateButton(name, bname, callback)
     local callback = callback or function() end
@@ -2831,6 +2849,7 @@ function insider:CreateSignal(title, signalname, signal)
   local TextLabel = Instance.new("TextLabel")
   local UICorner = Instance.new("UICorner")
   local TextLabel_2 = Instance.new("TextLabel")
+  local Stroke = Instance.new("UIStroke")
 
   Frame.Parent = Page1
   Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
@@ -2838,6 +2857,9 @@ function insider:CreateSignal(title, signalname, signal)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0596658699, 0, 0.430069923, 0)
   Frame.Size = UDim2.new(0, 369, 0, 53)
+
+  Stroke.Parent = Frame
+  Stroke.Thickness = .9
   
   TextLabel.Parent = Frame
   TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
