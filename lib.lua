@@ -1427,7 +1427,7 @@ function lib:CreateWindow(name)
   Page1.Name = name
   Page1.Parent = Background
   Page1.Active = true
-  Page1.AutomaticCanvasSize = Enum.AutomaticSize.XY
+  Page1.AutomaticCanvasSize = XY
   Page1.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
   Page1.BorderColor3 = Color3.fromRGB(16, 16, 16)
   Page1.Position = UDim2.new(0.234, 0,0.147, 0)
