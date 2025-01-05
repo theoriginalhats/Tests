@@ -2863,9 +2863,11 @@ function insider:CreateSignal(title, signalname, signal)
   TextLabel_2.Size = UDim2.new(0, 150, 0, 39)
   TextLabel_2.Font = Enum.Font.Gotham
   TextLabel_2.Text = signalname
-  TextLabel_2.TextColor3 = Color3.fromRGB(255, 0, 0)
+  TextLabel_2.TextColor3 = signal and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
   TextLabel_2.TextSize = 18.000
   TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+
 
   local Signals = {}
 
