@@ -1772,7 +1772,7 @@ function lib:CreateWindow(name)
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.0284552854, 0, 0.820895493, 0)
     Frame.Size = UDim2.new(0, 340, 0, 63)
-    stroke.Paren = Frame
+    stroke.Parent = Frame
     stroke.Thickness = .9
 
     TextLabel.Parent = Frame
