@@ -1538,7 +1538,7 @@ function lib:CreateWindow(name)
         TextLabel.Position = UDim2.new(0.0349991731, 0, 0.0386258066, 0)
         TextLabel.Size = UDim2.new(0, 135, 0, 31)
         TextLabel.Font = Enum.Font.GothamBold
-        TextLabel.Text = "Hello Frostware!"
+        TextLabel.Text = name
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel.TextSize = 20.000
         TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -1551,7 +1551,7 @@ function lib:CreateWindow(name)
         btn.Position = UDim2.new(0.602188349, 0, 0.159169361, 0)
         btn.Size = UDim2.new(0, 130, 0, 43)
         btn.Font = Enum.Font.GothamBold
-        btn.Text = "Press Me"
+        btn.Text = sname
         btn.TextColor3 = Color3.fromRGB(255, 255, 255)
         btn.TextSize = 14.000
 
@@ -1591,42 +1591,159 @@ function lib:CreateWindow(name)
         UICorner_3.CornerRadius = UDim.new(0, 5)
         UICorner_3.Parent = TextBox
 
-        btn.MouseButton1Down:Connect(
-            function()
+          btn.MouseButton1Down:Connect(function()
+            pcall(callback)
+        end)
+
+        local keybind
+        TextBox.Parent = background
+        TextBox.PlaceholderText = "..."
+
+        TextBox.FocusLost:Connect(function()
+            local inputText = TextBox.Text:upper()
+            if Enum.KeyCode[inputText] then
+                keybind = Enum.KeyCode[inputText]
+                print("Keybind set to: " .. inputText)
+            else
+                print("Invalid Key")
+            end
+        end)
+
+        uis.InputBegan:Connect(function(input, typing)
+            if typing or not keybind then return end
+            if input.KeyCode == keybind then
                 pcall(callback)
             end
-        )
-
-        -- Set Keybind from TextBox
-        TextBox.FocusLost:Connect(
-            function()
-                local inputText = TextBox.Text:upper()
-                if Enum.KeyCode[inputText] then
-                    keybind = Enum.KeyCode[inputText]
-                    print("Keybind set to: " .. inputText)
-                else
-                    print("Invalid Key")
-                end
-            end
-        )
-
-        uis.InputBegan:Connect(
-            function(input, typing)
-                if typing or not keybind then
-                    return
-                end
-                if input.KeyCode == keybind then
-                    pcall(callback)
-                end
-            end
-        )
+        end)
     end
 
-    return SectionLib
+    function SectionLib:AddToggle(name, name2, callback)
+      local actions = {}
+      callback = callback or function()
+          end
+      local enabled = false
+      local uis = game:GetService("UserInputService")
+      local keybind = nil
+
+      local background = Instance.new("Frame")
+      local TextLabel = Instance.new("TextLabel")
+      local UICorner = Instance.new("UICorner")
+      local btn = Instance.new("TextButton")
+      local UICorner_2 = Instance.new("UICorner")
+      local TextLabel_2 = Instance.new("TextLabel")
+      local TextBox = Instance.new("TextBox")
+      local UICorner_3 = Instance.new("UICorner")
+
+      local stroke = Instance.new("UIStroke")
+      background.Parent = Section
+      background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+      background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+      background.BorderSizePixel = 0
+      background.Position = UDim2.new(0.0447154455, 0, 0.328358203, 0)
+      background.Size = UDim2.new(0, 340, 0, 63)
+
+      stroke.Parent = background
+      stroke.Thickness = .7
+
+      TextLabel.Parent = background
+      TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+      TextLabel.BackgroundTransparency = 1.000
+      TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+      TextLabel.BorderSizePixel = 0
+      TextLabel.Position = UDim2.new(0.0354615152, 0, -0.008992997, 0)
+      TextLabel.Size = UDim2.new(0, 135, 0, 39)
+      TextLabel.Font = Enum.Font.GothamBold
+      TextLabel.Text = name
+      TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+      TextLabel.TextSize = 20.000
+      TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+      UICorner.Parent = background
+
+      local stroke1 = Instance.new("UIStroke")
+      btn.Name = "btn"
+      btn.Parent = background
+      btn.BackgroundColor3 = Color3.fromRGB(103, 0, 2)
+      btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
+      btn.Position = UDim2.new(0.594655097, 0, 0.143784538, 0)
+      btn.Size = UDim2.new(0, 130, 0, 43)
+      btn.Font = Enum.Font.GothamBold
+      btn.Text = name2
+      btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+      btn.TextSize = 14.000
+
+      stroke1.Parent = btn
+      stroke1.Thickness = .7
+
+      UICorner_2.Parent = btn
+
+      TextLabel_2.Parent = background
+      TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+      TextLabel_2.BackgroundTransparency = 1.000
+      TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+      TextLabel_2.BorderSizePixel = 0
+      TextLabel_2.Position = UDim2.new(0.0277937055, 0, 0.483070016, 0)
+      TextLabel_2.Size = UDim2.new(0, 65, 0, 26)
+      TextLabel_2.Font = Enum.Font.GothamBold
+      TextLabel_2.Text = "Keybind:"
+      TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+      TextLabel_2.TextScaled = true
+      TextLabel_2.TextSize = 20.000
+      TextLabel_2.TextWrapped = true
+      TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+      TextBox.Parent = background
+      TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+      TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+      TextBox.BorderSizePixel = 0
+      TextBox.Position = UDim2.new(0, 74, 0, 32)
+      TextBox.Size = UDim2.new(0, 81, 0, 21)
+      TextBox.Font = Enum.Font.GothamBold
+      TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
+      TextBox.PlaceholderText = "..."
+      TextBox.Text = ""
+      TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+      TextBox.TextSize = 14.000
+
+      UICorner_3.CornerRadius = UDim.new(0, 5)
+      UICorner_3.Parent = TextBox
+
+      -- Toggle Functionality
+      local function Fire()
+          enabled = not enabled
+          btn.BackgroundColor3 = enabled and Color3.fromRGB(13, 97, 4) or Color3.fromRGB(103, 0, 2)
+          pcall(callback, enabled)
+      end
+
+      -- Button Click
+      btn.MouseButton1Down:Connect(Fire)
+
+      -- Set Keybind from TextBox
+      TextBox.FocusLost:Connect(
+          function()
+              local inputText = TextBox.Text:upper()
+              if Enum.KeyCode[inputText] then
+                  keybind = Enum.KeyCode[inputText]
+                  print("Keybind set to: " .. inputText)
+              else
+                  print("Invalid Key")
+              end
+          end)
+
+      -- Keybind Trigger
+      uis.InputBegan:Connect(
+          function(input, typing)
+              if typing or not keybind then
+                  return
+              end
+              if input.KeyCode == keybind then
+                  Fire()
+              end
+          end)
+  end
+
+  return SectionLib
 end
-
-
-
 
   function insider:CreateButtonSection(name, title, search, content)
     local Frame = Instance.new("Frame")
