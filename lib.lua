@@ -1557,6 +1557,7 @@ function lib:CreateWindow(name)
 
         stroke1.Parent = btn
         stroke1.Thickness = .7
+        stroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
         UICorner_2.Parent = btn
 
@@ -1585,7 +1586,7 @@ function lib:CreateWindow(name)
         TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
         TextBox.PlaceholderText = "..."
         TextBox.Text = ""
-        TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+        TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextBox.TextSize = 14.000
 
         UICorner_3.CornerRadius = UDim.new(0, 5)
@@ -1674,6 +1675,7 @@ function lib:CreateWindow(name)
 
       stroke1.Parent = btn
       stroke1.Thickness = .7
+      stroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
       UICorner_2.Parent = btn
 
@@ -1702,7 +1704,7 @@ function lib:CreateWindow(name)
       TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
       TextBox.PlaceholderText = "..."
       TextBox.Text = ""
-      TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+      TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
       TextBox.TextSize = 14.000
 
       UICorner_3.CornerRadius = UDim.new(0, 5)
@@ -1742,7 +1744,163 @@ function lib:CreateWindow(name)
           end)
   end
 
-  return SectionLib
+  function SectionLib:AddDropdown(name, options, callback)
+    callback = callback or function()
+        end
+
+    local TweenService = game:GetService("TweenService")
+
+    local Frame = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local UICorner = Instance.new("UICorner")
+    local btn = Instance.new("TextButton")
+    local UIPadding = Instance.new("UIPadding")
+    local UICorner_2 = Instance.new("UICorner")
+    local ImageLabel = Instance.new("ImageLabel")
+    local ScrollingFrame = Instance.new("ScrollingFrame")
+    local UIPadding_2 = Instance.new("UIPadding")
+    local UIListLayout = Instance.new("UIListLayout")
+    local option1 = Instance.new("TextButton")
+    local UICorner_3 = Instance.new("UICorner")
+    local option2 = Instance.new("TextButton")
+    local UICorner_4 = Instance.new("UICorner")
+    local option3 = Instance.new("TextButton")
+    local UICorner_5 = Instance.new("UICorner")
+
+    Frame.Parent = Section
+    Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+    Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BorderSizePixel = 0
+    Frame.Position = UDim2.new(0.0284552854, 0, 0.820895493, 0)
+    Frame.Size = UDim2.new(0, 340, 0, 63)
+
+    TextLabel.Parent = Frame
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(0.032520324, 0, 0.213229075, 0)
+    TextLabel.Size = UDim2.new(0, 135, 0, 39)
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = "Select an Option"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextSize = 20.000
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    UICorner.Parent = Frame
+
+    btn.Name = "btn"
+    btn.Parent = Frame
+    btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+    btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
+    btn.Position = UDim2.new(0.591713965, 0, 0.300530821, 0)
+    btn.Size = UDim2.new(0, 135, 0, 27)
+    btn.Font = Enum.Font.GothamBold
+    btn.Text = "Select A Option"
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.TextSize = 14.000
+    btn.TextXAlignment = Enum.TextXAlignment.Left
+    local stroke = Instance.new("UIStroke")
+
+    stroke.Parent = btn
+    stroke.Thickness = .7
+    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+    UIPadding.Parent = btn
+    UIPadding.PaddingLeft = UDim.new(0.100000001, 0)
+
+    UICorner_2.Parent = btn
+
+    ImageLabel.Parent = btn
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ImageLabel.BorderSizePixel = 0
+    ImageLabel.Position = UDim2.new(0.839137435, 0, 0.236473933, 0)
+    ImageLabel.Rotation = 89.000
+    ImageLabel.Size = UDim2.new(0, 13, 0, 14)
+    ImageLabel.Image = "rbxassetid://18951604198"
+
+    ScrollingFrame.Parent = btn
+    ScrollingFrame.Active = true
+    ScrollingFrame.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+    ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ScrollingFrame.BorderSizePixel = 0
+    ScrollingFrame.Position = UDim2.new(-0.102880158, 0, 1.13299668, 0)
+    ScrollingFrame.Size = UDim2.new(0, 132, 0, 0)
+    ScrollingFrame.Visible = false
+    ScrollingFrame.ScrollBarThickness = 5
+    local stroke1 = Instance.new("UIStroke")
+
+    stroke1.Parent = ScrollingFrame
+    stroke1.Thickness = .8
+    stroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+    UIPadding_2.Parent = ScrollingFrame
+    UIPadding_2.PaddingTop = UDim.new(0, 6)
+
+    UIListLayout.Parent = ScrollingFrame
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.Padding = UDim.new(0, 15)
+
+    local function createOption(optionName, index)
+        local option = Instance.new("TextButton")
+        local UICorner_4 = Instance.new("UICorner")
+        local UIStroke_4 = Instance.new("UIStroke")
+
+        option.Name = "option" .. index
+        option.Parent = ScrollingFrame
+        option.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+        option.BorderColor3 = Color3.fromRGB(33, 33, 33)
+        option.Position = UDim2.new(0.0037878789, 0, 0, 0)
+        option.Size = UDim2.new(0, 120, 0, 23)
+        option.Font = Enum.Font.GothamBold
+        option.Text = optionName
+        option.TextColor3 = Color3.fromRGB(255, 255, 255)
+        option.TextSize = 14.000
+
+        UICorner.Parent = option1
+
+        UICorner_4.Parent = option
+
+        UIStroke_4.Parent = option
+        UIStroke_4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+        UIStroke_4.LineJoinMode = Enum.LineJoinMode.Round
+        UIStroke_4.Thickness = 0.7
+
+        option.MouseButton1Click:Connect(
+            function()
+                callback(optionName)
+                TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 150, 0, 0)}):Play()
+                ScrollingFrame.Visible = false
+                btn.Text = optionName
+                TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = 89}):Play()
+            end
+        )
+    end
+
+    for i, option in ipairs(options) do
+        createOption(option, i)
+    end
+
+    local function toggleDropdown()
+        local isOpen = ScrollingFrame.Visible
+        if isOpen then
+            TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = 89}):Play()
+            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 150, 0, 0)}):Play()
+            task.wait(0.5)
+            ScrollingFrame.Visible = false
+        else
+            ScrollingFrame.Visible = true
+            TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = -89}):Play()
+            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 150, 0, 153)}):Play()
+        end
+    end
+
+    btn.MouseButton1Click:Connect(toggleDropdown)
+end
+
+return SectionLib
 end
 
   function insider:CreateButtonSection(name, title, search, content)
