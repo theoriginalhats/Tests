@@ -1762,10 +1762,9 @@ function lib:CreateWindow(name)
     local UIListLayout = Instance.new("UIListLayout")
     local option1 = Instance.new("TextButton")
     local UICorner_3 = Instance.new("UICorner")
-    local option2 = Instance.new("TextButton")
     local UICorner_4 = Instance.new("UICorner")
-    local option3 = Instance.new("TextButton")
     local UICorner_5 = Instance.new("UICorner")
+    local stroke = Instance.new("UIStroke")
 
     Frame.Parent = Section
     Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
@@ -1773,6 +1772,8 @@ function lib:CreateWindow(name)
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.0284552854, 0, 0.820895493, 0)
     Frame.Size = UDim2.new(0, 340, 0, 63)
+    stroke.Paren = Frame
+    stroke.Thickness = .9
 
     TextLabel.Parent = Frame
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1827,7 +1828,7 @@ function lib:CreateWindow(name)
     ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ScrollingFrame.BorderSizePixel = 0
     ScrollingFrame.Position = UDim2.new(-0.102880158, 0, 1.13299668, 0)
-    ScrollingFrame.Size = UDim2.new(0, 132, 0, 0)
+    ScrollingFrame.Size = UDim2.new(0, 132,0, 118)
     ScrollingFrame.Visible = false
     ScrollingFrame.ScrollBarThickness = 5
     local stroke1 = Instance.new("UIStroke")
@@ -1875,8 +1876,7 @@ function lib:CreateWindow(name)
                 ScrollingFrame.Visible = false
                 btn.Text = optionName
                 TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = 89}):Play()
-            end
-        )
+            end)
     end
 
     for i, option in ipairs(options) do
@@ -1893,11 +1893,217 @@ function lib:CreateWindow(name)
         else
             ScrollingFrame.Visible = true
             TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = -89}):Play()
-            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 150, 0, 153)}):Play()
+            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 132,0, 118)}):Play()
         end
     end
 
     btn.MouseButton1Click:Connect(toggleDropdown)
+end
+
+function SectionLib:AddSlider(name, min, current, max, callback)
+  callback = callback or function()
+      end
+  local Frame = Instance.new("Frame")
+  local UICorner = Instance.new("UICorner")
+  local SlideBG = Instance.new("Frame")
+  local Slider = Instance.new("Frame")
+  local UICorner_2 = Instance.new("UICorner")
+  local active = Instance.new("TextButton")
+  local TextLabel = Instance.new("TextLabel")
+  local TextBox = Instance.new("TextBox")
+  local UICorner_3 = Instance.new("UICorner")
+  local active = Instance.new("TextButton")
+  local stroke = Instance.new("UIStroke")
+  local stroke2 = Instance.new("UIStroke")
+
+  Frame.Parent = Section
+  Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
+  Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  Frame.BorderSizePixel = 0
+  Frame.Position = UDim2.new(0.0284552854, 0, 0.791505814, 0)
+  Frame.Size = UDim2.new(0, 340, 0, 63)
+
+  UICorner.Parent = Frame
+
+  SlideBG.Name = "SlideBG"
+  SlideBG.Parent = Frame
+  SlideBG.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+  SlideBG.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  SlideBG.BorderSizePixel = 0
+  SlideBG.Position = UDim2.new(0.0325201601, 0, 0.75, 0)
+  SlideBG.Size = UDim2.new(0, 317, 0, 5)
+
+  Slider.Name = "Slider"
+  Slider.Parent = SlideBG
+  Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  Slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  Slider.BorderSizePixel = 0
+  Slider.Position = UDim2.new(-0.00239819544, 0, -0.0332859568, 0)
+  Slider.Size = UDim2.new(0.151515156, 0, 1, 0)
+
+  UICorner_2.CornerRadius = UDim.new(0, 6)
+  UICorner_2.Parent = Slider
+
+  active.Name = "active"
+  active.Parent = Frame
+  active.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+  active.BackgroundTransparency = 1.000
+  active.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  active.BorderSizePixel = 0
+  active.Position = UDim2.new(0.032520324, 0, 0.75, 0)
+  active.Size = UDim2.new(0, 317, 0, 5)
+  active.Text = ""
+
+  stroke.Parent = active
+  stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+  stroke.LineJoinMode = Enum.LineJoinMode.Round
+  stroke.Thickness = .7
+  stroke2.Parent = background
+  stroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+  stroke2.LineJoinMode = Enum.LineJoinMode.Round
+  stroke2.Thickness = .9
+
+  TextLabel.Parent = Frame
+  TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.BackgroundTransparency = 1.000
+  TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextLabel.BorderSizePixel = 0
+  TextLabel.Position = UDim2.new(0.0354615152, 0, 0.117990643, 0)
+  TextLabel.Size = UDim2.new(0, 135, 0, 30)
+  TextLabel.Font = Enum.Font.GothamBold
+  TextLabel.Text = name
+  TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+  TextLabel.TextSize = 20.000
+  TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+  TextBox.Parent = Frame
+  TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+  TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+  TextBox.BorderSizePixel = 0
+  TextBox.Position = UDim2.new(0, 199, 0, 6)
+  TextBox.Size = UDim2.new(0, 128, 0, 32)
+  TextBox.Font = Enum.Font.GothamBold
+  TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
+  TextBox.PlaceholderText = "Numbers Only"
+  TextBox.Text = ""
+  TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+  TextBox.TextSize = 14.000
+
+  UICorner_3.CornerRadius = UDim.new(0, 5)
+  UICorner_3.Parent = TextBox
+
+  local dragging = false
+  local sliderWidth = SlideBG.AbsoluteSize.X
+  local inputService = game:GetService("UserInputService")
+
+  local function updateSlider(value)
+      local clampedValue = math.clamp(value, min, max)
+      local proportion = (clampedValue - min) / (max - min)
+      Slider.Size = UDim2.new(proportion, 0, 1, 0)
+      TextBox.Text = tostring(math.round(clampedValue))
+      callback(clampedValue)
+  end
+
+  active.InputBegan:Connect(
+      function(input)
+          if input.UserInputType == Enum.UserInputType.MouseButton1 then
+              dragging = true
+          end
+      end
+  )
+
+  inputService.InputEnded:Connect(
+      function(input)
+          if input.UserInputType == Enum.UserInputType.MouseButton1 then
+              dragging = false
+          end
+      end
+  )
+
+  local button = script.Parent
+  local userInputService = game:GetService("UserInputService")
+
+  local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
+
+  -- Note from Kingu: Function to update the position of the GUI element
+  local function updatePosition(input)
+      local delta = input.Position - dragStart
+      button.Position =
+          UDim2.new(
+          startPos.X.Scale,
+          startPos.X.Offset + delta.X,
+          startPos.Y.Scale,
+          startPos.Y.Offset + delta.Y
+      )
+  end
+
+  -- Note from Kingu: Handle input beginning (touch or mouse)
+  active.InputBegan:Connect(
+      function(input, gameProcessed)
+          if
+              not gameProcessed and
+                  (input.UserInputType == Enum.UserInputType.MouseButton1 or
+                      input.UserInputType == Enum.UserInputType.Touch)
+           then
+              isDragging, dragStart, startPos = true, input.Position, button.Position
+              input.Changed:Connect(
+                  function()
+                      if input.UserInputState == Enum.UserInputState.End then
+                          isDragging = false
+                      end
+                  end
+              )
+          end
+      end
+  )
+
+  -- Note from Kingu: Handle input changes (movement)
+  userInputService.InputChanged:Connect(
+      function(input)
+          if
+              isDragging and
+                  (input.UserInputType == Enum.UserInputType.MouseMovement or
+                      input.UserInputType == Enum.UserInputType.Touch)
+           then
+              updatePosition(input)
+          end
+      end
+  )
+
+  -- Note from Kingu: Handle input end (release)
+  userInputService.InputEnded:Connect(
+      function(input)
+          if isDragging and input.UserInputState == Enum.UserInputState.End then
+              isDragging = false
+          end
+      end
+  )
+
+  inputService.InputChanged:Connect(
+      function(input)
+          if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+              local mousePosition = input.Position.X
+              local slideBGPosition = SlideBG.AbsolutePosition.X
+              local newValue = min + ((mousePosition - slideBGPosition) / sliderWidth) * (max - min)
+              updateSlider(newValue)
+          end
+      end
+  )
+
+  updateSlider(current)
+
+  TextBox.FocusLost:Connect(
+      function(enterPressed)
+          if enterPressed then
+              local value = tonumber(TextBox.Text)
+              if value then
+                  updateSlider(value)
+              else
+                  TextBox.Text = tostring(current)
+              end
+          end
+      end
+  )
 end
 
 return SectionLib
