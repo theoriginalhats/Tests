@@ -564,6 +564,7 @@ display.Font = Enum.Font.FredokaOne
 display.Text = "user"
 display.TextColor3 = Color3.fromRGB(255, 255, 255)
 display.TextSize = 32.000
+display.TextScaled = true
 display.TextXAlignment = Enum.TextXAlignment.Left
 display.TextYAlignment = Enum.TextYAlignment.Top
 
