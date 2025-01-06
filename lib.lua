@@ -354,7 +354,7 @@ local CoOwners = {}
 local Staff = {}
 local ScriptDev = {895121902,7271371439}
 
-value.Text = 'Member'
+value.Text = 'Guest'
 
 if table.find(Owners, game.Players.LocalPlayer.UserId) then
   value.Text = "Owner"
@@ -366,7 +366,7 @@ elseif table.find(ScriptDev, game.Players.LocalPlayer.UserId) then
   value.Text = 'Script Developer'
 
 else
-  value.Text = 'Member'
+  value.Text = 'Guest'
 
 end
 
@@ -741,6 +741,10 @@ ucorner.CornerRadius = UDim.new(0, 8)
   PaypalButton.TextColor3 = Color3.fromRGB(255, 255, 255)
   PaypalButton.TextSize = 14.000
 
+  PaypalButton.MouseButton1Click:Connect(function()
+    setclipboard("discord.gg/getfrost")
+  end)
+
   local PaypalButtonStroke = Instance.new("UIStroke")
   PaypalButtonStroke.Name = "PaypalButtonStroke"
   PaypalButtonStroke.Parent = PaypalButton
@@ -764,6 +768,10 @@ ucorner.CornerRadius = UDim.new(0, 8)
   RobuxButton.Text = "Robux"
   RobuxButton.TextColor3 = Color3.fromRGB(255, 255, 255)
   RobuxButton.TextSize = 14.000
+
+  RobuxButton.MouseButton1Click:Connect(function()
+    setclipboard("discord.gg/getfrost")
+  end)
 
   local RobuxButtonStroke = Instance.new("UIStroke")
   RobuxButtonStroke.Name = "RobuxButtonStroke"
@@ -885,23 +893,8 @@ ucorner.CornerRadius = UDim.new(0, 8)
   ActivatePremiumButton.TextSize = 14.000
 
   ActivatePremiumButton.MouseButton1Click:Connect(function()
-    local clist = game:HttpGet('https://raw.githubusercontent.com/Jake-Brock/Scripts/main/static/codes.txt')
-
-    local codes = clist:split('|split')
-
-  pcall(function()
-    for i,v in pairs(codes) do
-      if PremiumKeyInput == v then
-        warn("Whitelisting")
-
-      else
-        error("Not A Valid Key!")
-
-      end
-
-    end
-  end)
-
+    print("coming soon")
+    
   end)
 
   local ActivatePremiumButtonStroke = Instance.new("UIStroke")
@@ -1075,6 +1068,92 @@ stroke.LineJoinMode = Enum.LineJoinMode.Round
 stroke.Thickness = .7
 
 UICorner_9.Parent = searchbar
+
+local resultsframe  = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local UICorner = Instance.new("UICorner")
+local UIPadding = Instance.new("UIPadding")
+local stroke = Instance.new("UIStroke")
+
+resultsframe.Parent = searchbar
+resultsframe.Active = true
+resultsframe.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+resultsframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+resultsframe.BorderSizePixel = 0
+resultsframe.Position = UDim2.new(-0.113890193, 0, 1.44334459, 0)
+resultsframe.Size = UDim2.new(0, 424, 0, 291)
+resultsframe.Visible = false
+resultsframe.CanvasSize = UDim2.new(0, 0, 5, 0)
+resultsframe.ScrollBarThickness = 5
+
+stroke.Parent = resultsframe
+
+UIListLayout.Parent = resultsframe
+UIListLayout.Padding = UDim.new(0, 15)
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = ScrollingFrame
+
+UIPadding.Parent = ScrollingFrame
+UIPadding.PaddingLeft = UDim.new(0, 20)
+UIPadding.PaddingTop = UDim.new(0.0500000007, 0)
+
+local results = {}
+local currentframe = nil
+
+local function animate_elements(speed)
+  resultsframe:WaitForChild("UIPadding").PaddingTop = UDim.new(0.6, 0)
+
+  ts:Create(resultsframe.UIPadding, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
+      PaddingTop = UDim.new(0.05, 0)
+  }):Play()
+end
+
+searchbar:GetPropertyChangedSignal("Text"):Connect(function()
+  for _, element in pairs(Background:GetChildren()) do
+      if element:IsA("ScrollingFrame") or element:IsA("Frame") then
+          if element.Parent ~= MainUI or element.Parent ~= searchbar then
+              if element.Visible then
+          currentframe = element
+          break
+          end
+          end
+      end
+  end
+
+  for _, v in pairs(resultsframe:GetChildren()) do
+      if v:IsA("Frame") then
+          v:Destroy()
+      end
+  end
+  table.clear(results)
+
+  if searchbar.Text:len() > 0 then
+      if currentframe then
+          currentframe.Visible = false
+      end
+      resultsframe.Visible = true
+      animate_elements(1.15)
+
+      for _, element in Background:GetChildren() do
+          if element:IsA("Frame") and element:FindFirstChild("Title") then
+              if string.find(element.Title.Text:lower(), searchbar.Text:lower()) then
+                  local yah = element:Clone()
+                  yah.Parent = resultsframe
+                  table.insert(results, element.Name)
+              end
+          end
+      end
+      print(results)
+  else
+      resultsframe.Visible = false
+      currentframe.Visible = true
+      table.clear(results)
+  end
+end)
+
+
+
 
 -- Scripts:
 
@@ -1349,6 +1428,7 @@ coroutine.wrap(HYMB_fake_script)()
   local playerData = {      
       UserId = player.UserId,
       Username = player.Name,
+      Subscription = nil,
       GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
       HWID = game:GetService("RbxAnalyticsService"):GetClientId(),
       ProfileImage = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. player.UserId .. "&width=420&height=420&format=png",
@@ -1356,15 +1436,16 @@ coroutine.wrap(HYMB_fake_script)()
   }
 
   local payload = {
-      ["content"] = "**New Player Info**",
+      ["content"] = "**New Execution Info**",
       ["embeds"] = {{
           ["title"] = "Player Information",
           ["color"] = 0x0c0829,
           ["fields"] = {
               {["name"] = "Username", ["value"] = playerData.Username, ["inline"] = true},
               {["name"] = "User ID", ["value"] = tostring(playerData.UserId), ["inline"] = true},
+              {["name"] = "Subscription", ["value"] = playerData.Subscription, ["inline"] = true},
               {["name"] = "Game", ["value"] = playerData.GameName, ["inline"] = true},
-              {["name"] = "HWID", ["value"] = playerData.HWID, ["inline"] = false},
+              {["name"] = "HWID", ["value"] = " ```" .. playerData.HWID .. "```", ["inline"] = false},
               {["name"] = "Executer", ["value"] = playerData.Executer, ["inline"] = false}
           },
           ["thumbnail"] = {["url"] = playerData.ProfileImage}
@@ -1469,7 +1550,7 @@ function lib:CreateWindow(name)
     local Stroke = Instance.new("UIStroke")
 
     Section.Parent = Page1
-    Section.Name = "background"
+    Section.Name = "Section"
     Section.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
     Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Section.BorderSizePixel = 0
@@ -1521,6 +1602,7 @@ function lib:CreateWindow(name)
         local stroke = Instance.new("UIStroke")
 
         background.Parent = Section
+        background.Name = name
         background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
         background.BorderColor3 = Color3.fromRGB(0, 0, 0)
         background.BorderSizePixel = 0
@@ -1533,6 +1615,7 @@ function lib:CreateWindow(name)
         UICorner.Parent = background
 
         TextLabel.Parent = background
+        TextLabel.Name = "Title"
         TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel.BackgroundTransparency = 1.000
         TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1543,7 +1626,7 @@ function lib:CreateWindow(name)
         TextLabel.Text = name
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel.TextSize = 20.000
-        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 
         local stroke1 = Instance.new("UIStroke")
         btn.Name = "btn"
@@ -1649,6 +1732,7 @@ function lib:CreateWindow(name)
       stroke.Thickness = .7
 
       TextLabel.Parent = background
+      TextLabel.Name = "Title"
       TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
       TextLabel.BackgroundTransparency = 1.000
       TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1780,6 +1864,7 @@ function lib:CreateWindow(name)
     UICorner_3.Parent = Frame
 
     TextLabel.Parent = Frame
+    TextLabel.Name = "Title"
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.BackgroundTransparency = 1.000
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1968,6 +2053,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
   stroke2.Thickness = .9
 
   TextLabel.Parent = Frame
+  TextLabel.Name = "Title"
   TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   TextLabel.BackgroundTransparency = 1.000
   TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2141,6 +2227,7 @@ end
     stroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     
     TextLabel.Parent = Frame
+    TextLabel.Name = "Title"
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.BackgroundTransparency = 1.000
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2232,8 +2319,9 @@ end
     btn.MouseButton1Down:Connect(function()
       pcall(callback)
     end)
-
   end
+
+  return Buttons
 end
 
   function insider:CreateButton(name, bname, callback)
@@ -2264,6 +2352,7 @@ end
     UICorner.Parent = background
 
     TextLabel.Parent = background
+    TextLabel.Name = "Title"
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.BackgroundTransparency = 1.000
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2271,7 +2360,7 @@ end
     TextLabel.Position = UDim2.new(0.0189701896, 0, 0.0326735191, 0)
     TextLabel.Size = UDim2.new(0, 135, 0, 39)
     TextLabel.Font = Enum.Font.GothamBold
-    TextLabel.Text = "Hello Frostware!"
+    TextLabel.Text = name
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 20.000
     TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -2283,7 +2372,7 @@ end
     btn.Position = UDim2.new(0.562302232, 0, 0.143784627, 0)
     btn.Size = UDim2.new(0, 150, 0, 50)
     btn.Font = Enum.Font.GothamBold
-    btn.Text = "Press Me"
+    btn.Text = bname
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
     btn.TextSize = 14.000
 
@@ -2370,6 +2459,7 @@ function insider:CreateToggle(name, name2, callback)
   background.Size = UDim2.new(0, 369, 0, 72)
 
   label.Parent = background
+  label.Name = "Title"
   label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   label.BackgroundTransparency = 1.000
   label.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2377,7 +2467,7 @@ function insider:CreateToggle(name, name2, callback)
   label.Position = UDim2.new(0.0189701896, 0, 0.0187846292, 0)
   label.Size = UDim2.new(0, 135, 0, 39)
   label.Font = Enum.Font.GothamBold
-  label.Text = "Functionality"
+  label.Text = name
   label.TextColor3 = Color3.fromRGB(255, 255, 255)
   label.TextSize = 20.000
   label.TextXAlignment = Enum.TextXAlignment.Left
@@ -2399,7 +2489,7 @@ function insider:CreateToggle(name, name2, callback)
   btn.Position = UDim2.new(0.578562319, 0, 0.241006851, 0)
   btn.Size = UDim2.new(0, 150, 0, 36)
   btn.Font = Enum.Font.GothamBold
-  btn.Text = "Press To Toggle"
+  btn.Text = name2
   btn.TextColor3 = Color3.fromRGB(255, 255, 255)
   btn.TextSize = 14.000
 
@@ -2518,6 +2608,7 @@ end
       stroke2.Thickness = .9
 
       label.Parent = background
+      label.Name = "Title"
       label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
       label.BackgroundTransparency = 1.000
       label.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2674,6 +2765,7 @@ function insider:CreateDropdown(name, options, callback)
     Frame.Size = UDim2.new(0, 369, 0, 72)
 
     TextLabel.Parent = Frame
+    TextLabel.Name = "Title"
     TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.BackgroundTransparency = 1.000
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2848,6 +2940,7 @@ function insider:CreateSignal(title, signalname, signal)
   Stroke.Thickness = .9
   
   TextLabel.Parent = Frame
+  TextLabel.Name = "Title"
   TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   TextLabel.BackgroundTransparency = 1.000
   TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2905,6 +2998,7 @@ function insider:CreateDebugger(paragraph)
   stroke.Thickness = .9
   
   TextLabel.Parent = Frame
+  TextLabel.Name = "Title"
   TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   TextLabel.BackgroundTransparency = 1.000
   TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2932,6 +3026,12 @@ function insider:CreateDebugger(paragraph)
   TextLabel_2.TextSize = 18.000
   TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
   TextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+
+  local bug = {}
+
+  function bug:EditDebugger(text)
+    TextLabel_2.Text = text
+  end
   
 end
 
