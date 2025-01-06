@@ -2199,7 +2199,7 @@ end
 return SectionLib
 end
 
-  function insider:CreateButtonSection(name, title, search, content)
+  function insider:CreateButtonSection(title, search)
     local Frame = Instance.new("Frame")
     local TextLabel = Instance.new("TextLabel")
     local UICorner = Instance.new("UICorner")
@@ -2292,14 +2292,14 @@ end
 
   local Buttons = {}
 
-  function Buttons:AddButton(name, sname, callback)
+  function Buttons:AddButton(name, callback)
     local callback = callback or function() end
     local btn = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
     local stroke = Instance.new("UIStroke")
 
     btn.Name = "btn"
-    btn.Parent = Page1:WaitForChild(sname).SectionOptions
+    btn.Parent = Frame
     btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
     btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
     btn.LayoutOrder = 2
@@ -3032,6 +3032,8 @@ function insider:CreateDebugger(paragraph)
   function bug:EditDebugger(text)
     TextLabel_2.Text = text
   end
+
+  return bug
   
 end
 
