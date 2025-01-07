@@ -2301,6 +2301,7 @@ end
           element.Visible = false
         end
     end
+  end
   end)
 
   local Buttons = {}
