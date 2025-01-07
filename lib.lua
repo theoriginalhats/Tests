@@ -1145,7 +1145,6 @@ searchbar:GetPropertyChangedSignal("Text"):Connect(function()
               end
           end
       end
-      print(results)
   else
       resultsframe.Visible = false
       currentframe.Visible = true
