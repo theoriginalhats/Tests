@@ -1757,8 +1757,10 @@ function lib:CreateWindow(name)
       btn.Size = UDim2.new(0, 130, 0, 43)
       btn.Font = Enum.Font.GothamBold
       btn.Text = name2
+      btn.TextScaled = true
       btn.TextColor3 = Color3.fromRGB(255, 255, 255)
       btn.TextSize = 14.000
+      btn.TextScaled = true
 
       stroke1.Parent = btn
       stroke1.Thickness = .7
@@ -2291,6 +2293,16 @@ end
       searchbar.Visible = false
   end
 
+  searchbar:GetPropertyChangedSignal("Text"):Connect(function()
+
+    for _, element in SectionOptions:GetChildren() do
+      if element:IsA("Button") then
+        if not string.find(element.Text:lower(), search.Text:lower()) then
+          element.Visible = false
+        end
+    end
+  end)
+
   local Buttons = {}
 
   function Buttons:AddButton(name, callback)
@@ -2300,7 +2312,7 @@ end
     local stroke = Instance.new("UIStroke")
 
     btn.Name = "btn"
-    btn.Parent = Frame
+    btn.Parent = SectionOptions
     btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
     btn.BorderColor3 = Color3.fromRGB(33, 33, 33)
     btn.LayoutOrder = 2
@@ -2374,6 +2386,7 @@ end
     btn.Size = UDim2.new(0, 150, 0, 50)
     btn.Font = Enum.Font.GothamBold
     btn.Text = bname
+    btn.TextScaled = true
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
     btn.TextSize = 14.000
 
@@ -2491,6 +2504,7 @@ function insider:CreateToggle(name, name2, callback)
   btn.Size = UDim2.new(0, 150, 0, 36)
   btn.Font = Enum.Font.GothamBold
   btn.Text = name2
+  btn.TextScaled = true
   btn.TextColor3 = Color3.fromRGB(255, 255, 255)
   btn.TextSize = 14.000
 
