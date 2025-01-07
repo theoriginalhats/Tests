@@ -1073,7 +1073,7 @@ UICorner_9.Parent = searchbar
 local resultsframe  = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local UICorner = Instance.new("UICorner")
-local UIPadding = Instance.new("UIPadding")
+local padme = Instance.new("UIPadding")
 local stroke = Instance.new("UIStroke")
 
 resultsframe.Parent = searchbar
@@ -1093,11 +1093,11 @@ UIListLayout.Parent = resultsframe
 UIListLayout.Padding = UDim.new(0, 15)
 
 UICorner.CornerRadius = UDim.new(1, 0)
-UICorner.Parent = ScrollingFrame
+UICorner.Parent = resultsframe
 
-UIPadding.Parent = ScrollingFrame
-UIPadding.PaddingLeft = UDim.new(0, 20)
-UIPadding.PaddingTop = UDim.new(0.0500000007, 0)
+padme.Parent = resultsframe
+padme.PaddingLeft = UDim.new(0, 20)
+padme.PaddingTop = UDim.new(0.0500000007, 0)
 
 local results = {}
 local currentframe = nil
@@ -2379,6 +2379,7 @@ end
     TextLabel.TextSize = 20.000
     TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+    local stroke2 = Instance.new("UIStroke")
     btn.Name = "btn"
     btn.Parent = background
     btn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
@@ -2390,6 +2391,9 @@ end
     btn.TextScaled = true
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
     btn.TextSize = 14.000
+
+    stroke2.Parent = btn
+    stroke2.Thickness = .7
 
     UICorner_2.Parent = btn
 
