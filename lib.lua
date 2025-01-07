@@ -1103,9 +1103,9 @@ local results = {}
 local currentframe = nil
 
 local function animate_elements(speed)
-  resultsframe:WaitForChild("UIPadding").PaddingTop = UDim.new(0.6, 0)
+  padme = UDim.new(0.6, 0)
 
-  ts:Create(resultsframe.UIPadding, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
+  ts:Create(padme, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
       PaddingTop = UDim.new(0.05, 0)
   }):Play()
 end
@@ -1608,6 +1608,7 @@ function lib:CreateWindow(name)
         background.BorderSizePixel = 0
         background.Position = UDim2.new(0.0390244573, 0, 0.317241371, 0)
         background.Size = UDim2.new(0, 340, 0, 63)
+        background.ZIndex = 0
 
         stroke.Parent = background
         stroke.Thickness = .9
@@ -2225,8 +2226,10 @@ end
     Frame.Position = UDim2.new(0.0596658699, 0, 0.293706298, 0)
     Frame.Size = UDim2.new(0, 369, 0, 145)
     stroke1.Parent = Frame
+    Frame.ZIndex = 0
     stroke1.Thickness = 0.9
     stroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+  
     
     TextLabel.Parent = Frame
     TextLabel.Name = "Title"
@@ -2985,7 +2988,7 @@ function insider:CreateSignal(title, signalname, signal)
   TextLabel_2.Text = signalname
   TextLabel_2.TextColor3 = signal and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
   TextLabel_2.TextSize = 18.000
-  TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+  TextLabel_2.TextXAlignment = Enum.TextXAlignment.Center
 
 
 
