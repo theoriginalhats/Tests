@@ -1103,7 +1103,7 @@ local results = {}
 local currentframe = nil
 
 local function animate_elements(speed)
-  padme.PaddingTop = UDim.new(0.6, 0)
+  padme = UDim.new(0.6, 0)
 
   ts:Create(padme, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
       PaddingTop = UDim.new(0.05, 0)
@@ -1557,6 +1557,7 @@ function lib:CreateWindow(name)
     Section.Position = UDim2.new(0.0525059663, 0, 0.00699300691, 0)
     Section.Size = UDim2.new(0, 369, 0, 125)
     Section.AutomaticSize = Enum.AutomaticSize.XY
+    Sectio.ZIndex = 1
 
     Stroke.Parent = Section
     stroke.Thickness = .9
@@ -1923,6 +1924,7 @@ function lib:CreateWindow(name)
     ScrollingFrame.Size = UDim2.new(0, 132,0, 118)
     ScrollingFrame.Visible = false
     ScrollingFrame.ScrollBarThickness = 5
+    ScrollingFrame.ZIndex = 1
     local stroke1 = Instance.new("UIStroke")
 
     stroke1.Parent = ScrollingFrame
@@ -2845,6 +2847,7 @@ function insider:CreateDropdown(name, options, callback)
     ScrollingFrame.Position = UDim2.new(-0.111, 0,1.133, 0)
     ScrollingFrame.Size = UDim2.new(0, 150, 0, 0)
     ScrollingFrame.Visible = false
+    ScrollingFrame.ZIndex = 1
     ScrollingFrame.ScrollBarThickness = 5
 
     UIStroke_3.Parent = ScrollingFrame
