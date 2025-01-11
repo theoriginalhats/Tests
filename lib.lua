@@ -752,7 +752,7 @@ PurchaseBtn_2.MouseButton1Click:Connect(function()
   setclipboard("discord.gg/getfrost")
 end)
 
-UICorner_7.Parent = ButtonFrame_2
+UICorner7.Parent = ButtonFrame_2
 
 Icon_2.Name = "Icon"
 Icon_2.Parent = RightFrame
@@ -808,7 +808,7 @@ server2.TextXAlignment = Enum.TextXAlignment.Left
 server2.TextYAlignment = Enum.TextYAlignment.Top
 
 UIGradient4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-UIGradient4.Parent = server
+UIGradient4.Parent = server2
 
 UICorner9.CornerRadius = UDim.new(0, 9)
 UICorner9.Parent = RightImg
@@ -1363,7 +1363,7 @@ function lib:CreateWindow(name)
         TextLabel.Text = name
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel.TextSize = 20.000
-        TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
         local stroke1 = Instance.new("UIStroke")
         btn.Name = "btn"
@@ -1494,7 +1494,6 @@ function lib:CreateWindow(name)
       btn.Size = UDim2.new(0, 130, 0, 43)
       btn.Font = Enum.Font.GothamBold
       btn.Text = name2
-      btn.TextScaled = true
       btn.TextColor3 = Color3.fromRGB(255, 255, 255)
       btn.TextSize = 14.000
 
@@ -1611,7 +1610,7 @@ function lib:CreateWindow(name)
     TextLabel.Position = UDim2.new(0.032520324, 0, 0.213229075, 0)
     TextLabel.Size = UDim2.new(0, 135, 0, 39)
     TextLabel.Font = Enum.Font.GothamBold
-    TextLabel.Text = "Select an Option"
+    TextLabel.Text = name
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 20.000
     TextLabel.TextXAlignment = Enum.TextXAlignment.Left
