@@ -27,7 +27,6 @@ local UIPadding = Instance.new("UIPadding")
 local ToggleTemplate = Instance.new("Frame")
 local btn = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
-local Title = Instance.new("TextLabel")
 local ButtonTemplate = Instance.new("Frame")
 local btn_2 = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
@@ -60,8 +59,6 @@ local display = Instance.new("TextLabel")
 local UIGradient_4 = Instance.new("UIGradient")
 local realuser = Instance.new("TextLabel")
 local UIGradient_5 = Instance.new("UIGradient")
-local AdminUI = Instance.new("Folder")
-local MainAdminFrame = Instance.new("ScrollingFrame")
 local OwnerUI = Instance.new("Folder")
 local MainUI = Instance.new("Folder")
 local version = Instance.new("TextLabel")
@@ -77,42 +74,41 @@ local Stroke = Instance.new("UIStroke")
 local Toggle = Instance.new("ImageButton")
 local cerner = Instance.new("UICorner")
 
-local PremiumFrame = Instance.new("Frame")
-local PremiumUICorner = Instance.new("UICorner")
-local InfoHolderFrame = Instance.new("Frame")
-local RankHolderFrame = Instance.new("Frame")
-local RankBackgroundFrame = Instance.new("Frame")
-local RankValueLabel = Instance.new("TextLabel")
-local RankGradient = Instance.new("UIGradient")
-local RankTitleLabel = Instance.new("TextLabel")
-local SubscriptionHolderFrame = Instance.new("Frame")
-local SubscriptionBackgroundFrame = Instance.new("Frame")
-local SubscriptionValueLabel = Instance.new("TextLabel")
-local SubscriptionGradient = Instance.new("UIGradient")
-local MembershipLabel = Instance.new("TextLabel")
-local DiscordLabel = Instance.new("TextLabel")
-local DiscordGradient = Instance.new("UIGradient")
-local InfoBackgroundFrame = Instance.new("Frame")
-local PaypalButton = Instance.new("TextButton")
-local PaypalUICorner = Instance.new("UICorner")
-local PaypalGradient = Instance.new("UIGradient")
-local RobuxButton = Instance.new("TextButton")
-local RobuxUICorner = Instance.new("UICorner")
-local RobuxGradient = Instance.new("UIGradient")
-local PaypalLabel = Instance.new("TextLabel")
-local PaypalImage = Instance.new("ImageLabel")
-local PaypalPriceLabel = Instance.new("TextLabel")
-local RobuxLabel = Instance.new("TextLabel")
-local RobuxPriceLabel = Instance.new("TextLabel")
-local RobuxImage = Instance.new("ImageLabel")
-local ActivatePremiumFrame = Instance.new("Frame")
-local PremiumKeyInput = Instance.new("TextBox")
-local InputUICorner = Instance.new("UICorner")
-local ActivatePremiumButton = Instance.new("TextButton")
-local ActivatePremiumUICorner = Instance.new("UICorner")
-local ActivatePremiumGradient = Instance.new("UIGradient")
-local backframe = Instance.new("Frame")
-local ucorner = Instance.new("UICorner")
+local Premium = Instance.new("Frame")
+local premstroke = Instance.new("UIStroke")
+local UICorner1 = Instance.new("UICorner")
+local LeftImg = Instance.new("ImageLabel")
+local LeftFrame = Instance.new("Frame")
+local UICorner2 = Instance.new("UICorner")
+local server = Instance.new("TextLabel")
+local UIGradient1 = Instance.new("UIGradient")
+local Icon = Instance.new("ImageLabel")
+local UICorner3 = Instance.new("UICorner")
+local Currency = Instance.new("TextLabel")
+local Cost = Instance.new("TextLabel")
+local ButtonFrame = Instance.new("Frame")
+local BFstroke = Instance.new("UIStroke")
+local UIGradient2 = Instance.new("UIGradient")
+local PurchaseBtn = Instance.new("TextButton")
+local UICorner4 = Instance.new("UICorner")
+local UICorner5 = Instance.new("UICorner")
+local RightImg = Instance.new("ImageLabel")
+local RightFrame = Instance.new("Frame")
+local UICorner6 = Instance.new("UICorner")
+local ButtonFrame_2 = Instance.new("Frame")
+local BFstroke2 = Instance.new("UIStroke")
+local UIGradient3 = Instance.new("UIGradient")
+local PurchaseBtn_2 = Instance.new("TextButton")
+local UICorner7 = Instance.new("UICorner")
+local Icon_2 = Instance.new("ImageLabel")
+local UICorner8 = Instance.new("UICorner")
+local Currency_2 = Instance.new("TextLabel")
+local Cost_2 = Instance.new("TextLabel")
+local server2 = Instance.new("TextLabel")
+local UIGradient4 = Instance.new("UIGradient")
+local UICorner9 = Instance.new("UICorner")
+
+
   --//VARIABLE END\\--
 
 local UICorner_7 = Instance.new("UICorner")
@@ -121,17 +117,7 @@ local UICorner_8 = Instance.new("UICorner")
 local UIPadding_2 = Instance.new("UIPadding")
 local searchbar = Instance.new("TextBox")
 local UICorner_9 = Instance.new("UICorner")
-local UIListLayout_3 = Instance.new("UIListLayout")
-local UIPadding_3 = Instance.new("UIPadding")
-local v100 = Instance.new("TextButton")
-local UICorner_11 = Instance.new("UICorner")
-local UICorner_12 = Instance.new("UICorner")
-local line = Instance.new("Frame")
-local UICorner_13 = Instance.new("UICorner")
-local UIGradient_8 = Instance.new("UIGradient")
-local TextLabel_3 = Instance.new("TextLabel")
 local CloseBtn = Instance.new("TextButton")
-local ScrollingFrame = Instance.new("ScrollingFrame")
 local uis = game:GetService("UserInputService")
 local ts = game:GetService("TweenService")
 
@@ -589,346 +575,245 @@ realuser.TextYAlignment = Enum.TextYAlignment.Top
 UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
 UIGradient_5.Parent = realuser
 
+Premium.Name = "Premium"
+Premium.Parent = Background
+Premium.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Premium.BorderColor3 = Color3.fromRGB(16, 16, 16)
+Premium.Position = UDim2.new(0.221223071, 0, 0.147308782, 0)
+Premium.Size = UDim2.new(0, 424, 0, 293)
 
-  local borderStroke = Instance.new("UIStroke")
-  PremiumFrame.Name = "Premium"
-  PremiumFrame.Parent = Frostware:WaitForChild("Background")
-  PremiumFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-  PremiumFrame.BorderColor3 = Color3.fromRGB(16, 16, 16)
-  PremiumFrame.Position = UDim2.new(0.221223071, 0, 0.147308782, 0)
-  PremiumFrame.Size = UDim2.new(0, 424, 0, 293)
-  PremiumFrame.Visible = false
+premstroke.Parent = Premium
+premstroke.Thickness = .5
 
-  PremiumUICorner.Parent = PremiumFrame
+UICorner1.Parent = Premium
 
-  borderStroke.Parent = PremiumFrame
-  borderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-  borderStroke.Thickness = 0.5
+LeftImg.Name = "LeftImg"
+LeftImg.Parent = Premium
+LeftImg.AnchorPoint = Vector2.new(0.5, 0.5)
+LeftImg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LeftImg.BackgroundTransparency = 1.000
+LeftImg.BorderColor3 = Color3.fromRGB(27, 42, 53)
+LeftImg.Position = UDim2.new(0.265783489, 0, 0.481472433, 0)
+LeftImg.Size = UDim2.new(0, 206, 0, 281)
+LeftImg.Image = "http://www.roblox.com/asset/?id=6906809185"
+LeftImg.ImageColor3 = Color3.fromRGB(255, 255, 127)
 
-  InfoHolderFrame.Name = "InfoHolderFrame"
-  InfoHolderFrame.Parent = PremiumFrame
-  InfoHolderFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-  InfoHolderFrame.BorderColor3 = Color3.fromRGB(18, 18, 18)
-  InfoHolderFrame.Position = UDim2.new(0.0207453668, 0, 0.395904541, 0)
-  InfoHolderFrame.Size = UDim2.new(0, 401, 0, 165)
+LeftFrame.Name = "LeftFrame"
+LeftFrame.Parent = LeftImg
+LeftFrame.BackgroundColor3 = Color3.fromRGB(7, 7, 7)
+LeftFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LeftFrame.BorderSizePixel = 0
+LeftFrame.Position = UDim2.new(0.0585690103, 0, 0.0523307212, 0)
+LeftFrame.Size = UDim2.new(0, 183, 0, 251)
 
-  RankHolderFrame.Name = "RankHolderFrame"
-  RankHolderFrame.Parent = InfoHolderFrame
-  RankHolderFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RankHolderFrame.BackgroundTransparency = 1.000
-  RankHolderFrame.Position = UDim2.new(0, 0, 0.0366300382, 0)
-  RankHolderFrame.Size = UDim2.new(0, 148, 0, 72)
+UICorner2.CornerRadius = UDim.new(0, 3)
+UICorner2.Parent = LeftFrame
 
-  RankBackgroundFrame.Name = "RankBackgroundFrame"
-  RankBackgroundFrame.Parent = RankHolderFrame
-  RankBackgroundFrame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
-  RankBackgroundFrame.BorderColor3 = Color3.fromRGB(14, 14, 14)
-  RankBackgroundFrame.Position = UDim2.new(0.00285628042, 0, 0.388888896, 0)
-  RankBackgroundFrame.Size = UDim2.new(0, 132, 0, 32)
+server.Name = "discord"
+server.Parent = LeftFrame
+server.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+server.BackgroundTransparency = 1.000
+server.ClipsDescendants = true
+server.Position = UDim2.new(0.0537015982, 0, 0.889558911, 0)
+server.Size = UDim2.new(0, 165, 0, 27)
+server.Font = Enum.Font.FredokaOne
+server.Text = "discord.gg/getfrost"
+server.TextColor3 = Color3.fromRGB(255, 255, 255)
+server.TextSize = 21.000
+server.TextXAlignment = Enum.TextXAlignment.Left
+server.TextYAlignment = Enum.TextYAlignment.Top
 
-  RankValueLabel.Name = "RankValueLabel"
-  RankValueLabel.Parent = RankBackgroundFrame
-  RankValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RankValueLabel.BackgroundTransparency = 1.000
-  RankValueLabel.Position = UDim2.new(0.0879726633, 0, 0.147088408, 0)
-  RankValueLabel.Size = UDim2.new(0, 107, 0, 22)
-  RankValueLabel.Font = Enum.Font.GothamBold
-  RankValueLabel.Text = "Member"
-  RankValueLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  RankValueLabel.TextSize = 14.000
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
+UIGradient.Parent = server
 
-  RankGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  RankGradient.Parent = RankValueLabel
+Icon.Name = "Icon"
+Icon.Parent = LeftFrame
+Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Icon.BackgroundTransparency = 1.000
+Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Icon.BorderSizePixel = 0
+Icon.Position = UDim2.new(0.295081973, 0, 0.0438247025, 0)
+Icon.Size = UDim2.new(0, 74, 0, 74)
+Icon.Image = "http://www.roblox.com/asset/?id=15372139193"
 
-  RankTitleLabel.Parent = RankBackgroundFrame
-  RankTitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RankTitleLabel.BackgroundTransparency = 1.000
-  RankTitleLabel.Position = UDim2.new(0.0812160596, 0, -0.760416508, 0)
-  RankTitleLabel.Size = UDim2.new(0, 107, 0, 18)
-  RankTitleLabel.Font = Enum.Font.GothamBold
-  RankTitleLabel.Text = "Rank"
-  RankTitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  RankTitleLabel.TextScaled = true
-  RankTitleLabel.TextSize = 19.000
-  RankTitleLabel.TextWrapped = true
+UICorner3.CornerRadius = UDim.new(1, 0)
+UICorner3.Parent = Icon
 
-  SubscriptionHolderFrame.Name = "SubscriptionHolderFrame"
-  SubscriptionHolderFrame.Parent = InfoHolderFrame
-  SubscriptionHolderFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  SubscriptionHolderFrame.BackgroundTransparency = 1.000
-  SubscriptionHolderFrame.Position = UDim2.new(0, 0, 0.361311138, 0)
-  SubscriptionHolderFrame.Size = UDim2.new(0, 148, 0, 72)
+Currency.Name = "Currency"
+Currency.Parent = LeftFrame
+Currency.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Currency.BackgroundTransparency = 1.000
+Currency.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Currency.BorderSizePixel = 0
+Currency.Position = UDim2.new(0.245901644, 0, 0.338645428, 0)
+Currency.Size = UDim2.new(0, 92, 0, 33)
+Currency.Font = Enum.Font.FredokaOne
+Currency.Text = "Robux"
+Currency.TextColor3 = Color3.fromRGB(255, 255, 255)
+Currency.TextSize = 25.000
 
-  SubscriptionBackgroundFrame.Name = "SubscriptionBackgroundFrame"
-  SubscriptionBackgroundFrame.Parent = SubscriptionHolderFrame
-  SubscriptionBackgroundFrame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
-  SubscriptionBackgroundFrame.BorderColor3 = Color3.fromRGB(14, 14, 14)
-  SubscriptionBackgroundFrame.Position = UDim2.new(0.00285628042, 0, 0.691012919, 0)
-  SubscriptionBackgroundFrame.Size = UDim2.new(0, 132, 0, 32)
+Cost.Name = "Cost"
+Cost.Parent = LeftFrame
+Cost.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cost.BackgroundTransparency = 1.000
+Cost.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Cost.BorderSizePixel = 0
+Cost.Position = UDim2.new(0.245901644, 0, 0.458167344, 0)
+Cost.Size = UDim2.new(0, 92, 0, 33)
+Cost.Font = Enum.Font.FredokaOne
+Cost.Text = "1000R$"
+Cost.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cost.TextSize = 25.000
 
-  SubscriptionValueLabel.Name = "SubscriptionValueLabel"
-  SubscriptionValueLabel.Parent = SubscriptionBackgroundFrame
-  SubscriptionValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  SubscriptionValueLabel.BackgroundTransparency = 1.000
-  SubscriptionValueLabel.Position = UDim2.new(0.0879729316, 0, 0.147088051, 0)
-  SubscriptionValueLabel.Size = UDim2.new(0, 107, 0, 22)
-  SubscriptionValueLabel.Font = Enum.Font.GothamBold
-  SubscriptionValueLabel.Text = "Loading.."
-  SubscriptionValueLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  SubscriptionValueLabel.TextSize = 14.000
+ButtonFrame.Name = "ButtonFrame"
+ButtonFrame.Parent = LeftFrame
+ButtonFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+ButtonFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFrame.BorderSizePixel = 0
+ButtonFrame.Position = UDim2.new(0.173999995, 0, 0.694000006, 0)
+ButtonFrame.Size = UDim2.new(0, 120, 0, 32)
 
-if IsPremium == true then
-  SubscriptionValueLabel.Text = 'Premium'
+BFstroke.Parent = ButtonFrame
+BFstroke.Thickness = 1.3
 
-else
-  SubscriptionValueLabel.Text = 'Free'
+UIGradient2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
+UIGradient2.Parent = ButtonFrame
 
-end
+PurchaseBtn.Name = "PurchaseBtn"
+PurchaseBtn.Parent = ButtonFrame
+PurchaseBtn.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PurchaseBtn.BackgroundTransparency = 1.000
+PurchaseBtn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PurchaseBtn.BorderSizePixel = 0
+PurchaseBtn.Position = UDim2.new(-0.00940933265, 0, -0.0244636536, 0)
+PurchaseBtn.Size = UDim2.new(0, 120, 0, 32)
+PurchaseBtn.Font = Enum.Font.FredokaOne
+PurchaseBtn.Text = "Purchase"
+PurchaseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+PurchaseBtn.TextSize = 14.000
+PurchaseBtn.MouseButton1Click:Connect(function()
+  setclipboard("getfrost.xyz/script?purchase")
+end)
 
-  SubscriptionGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  SubscriptionGradient.Parent = SubscriptionValueLabel
+UICorner4.Parent = ButtonFrame
 
-  MembershipLabel.Name = "MembershipLabel"
-  MembershipLabel.Parent = SubscriptionBackgroundFrame
-  MembershipLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  MembershipLabel.BackgroundTransparency = 1.000
-  MembershipLabel.Position = UDim2.new(0.0963671133, 0, -0.894338608, 0)
-  MembershipLabel.Size = UDim2.new(0, 107, 0, 22)
-  MembershipLabel.Font = Enum.Font.GothamBold
-  MembershipLabel.Text = "Subscription"
-  MembershipLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  MembershipLabel.TextScaled = true
-  MembershipLabel.TextSize = 19.000
-  MembershipLabel.TextWrapped = true
+UICorner5.CornerRadius = UDim.new(0, 9)
+UICorner5.Parent = LeftImg
 
-backframe.Name = "background"
-backframe.Parent = InfoHolderFrame
-backframe.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
-backframe.BorderColor3 = Color3.fromRGB(14, 14, 14)
-backframe.Position = UDim2.new(0.37, 0, 0.046, 0)
-backframe.Size = UDim2.new(0, 243, 0, 128)
+RightImg.Name = "RightImg"
+RightImg.Parent = Premium
+RightImg.AnchorPoint = Vector2.new(0.5, 0.5)
+RightImg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RightImg.BackgroundTransparency = 1.000
+RightImg.BorderColor3 = Color3.fromRGB(27, 42, 53)
+RightImg.Position = UDim2.new(0.756524444, 0, 0.481472433, 0)
+RightImg.Size = UDim2.new(0, 206, 0, 282)
+RightImg.Image = "http://www.roblox.com/asset/?id=6906809185"
+RightImg.ImageColor3 = Color3.fromRGB(0, 0, 255)
 
-ucorner.Parent = backframe
-ucorner.CornerRadius = UDim.new(0, 8)
+RightFrame.Name = "RightFrame"
+RightFrame.Parent = RightImg
+RightFrame.BackgroundColor3 = Color3.fromRGB(7, 7, 7)
+RightFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RightFrame.BorderSizePixel = 0
+RightFrame.Position = UDim2.new(0.0531319939, 0, 0.0525377952, 0)
+RightFrame.Size = UDim2.new(0, 183, 0, 251)
 
-  DiscordLabel.Name = "DiscordLabel"
-  DiscordLabel.Parent = InfoHolderFrame
-  DiscordLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  DiscordLabel.BackgroundTransparency = 1.000
-  DiscordLabel.Position = UDim2.new(0.545403898, 0, 0.854146302, 0)
-  DiscordLabel.Size = UDim2.new(0, 107, 0, 22)
-  DiscordLabel.Font = Enum.Font.GothamBold
-  DiscordLabel.Text = "discord.gg/getfrost"
-  DiscordLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  DiscordLabel.TextSize = 14.000
+UICorner6.CornerRadius = UDim.new(0, 3)
+UICorner6.Parent = RightFrame
 
-  DiscordGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  DiscordGradient.Parent = DiscordLabel
+ButtonFrame_2.Name = "ButtonFrame"
+ButtonFrame_2.Parent = RightFrame
+ButtonFrame_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+ButtonFrame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFrame_2.BorderSizePixel = 0
+ButtonFrame_2.Position = UDim2.new(0.173999995, 0, 0.694000006, 0)
+ButtonFrame_2.Size = UDim2.new(0, 120, 0, 32)
 
-  InfoBackgroundFrame.Name = "InfoBackgroundFrame"
-  InfoBackgroundFrame.Parent = PremiumFrame
-  InfoBackgroundFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-  InfoBackgroundFrame.BorderColor3 = Color3.fromRGB(18, 18, 18)
-  InfoBackgroundFrame.Position = UDim2.new(0.37, 0,0.046, 0)
-  InfoBackgroundFrame.Size = UDim2.new(0, 243,0, 128)
+BFstroke2.Parent = ButtonFrame_2
+BFstroke2.Thickness = 1.3
 
-  PaypalButton.Name = "PaypalButton"
-  PaypalButton.Parent = backframe
-  PaypalButton.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-  PaypalButton.Position = UDim2.new(0.054, 0,0.74, 0)
-  PaypalButton.Size = UDim2.new(0, 74,0, 26)
-  PaypalButton.Font = Enum.Font.GothamBold
-  PaypalButton.Text = "Paypal"
-  PaypalButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalButton.TextSize = 14.000
+UIGradient3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
+UIGradient3.Parent = ButtonFrame_2
 
-  PaypalButton.MouseButton1Click:Connect(function()
-    setclipboard("discord.gg/getfrost")
-  end)
+PurchaseBtn_2.Name = "PurchaseBtn"
+PurchaseBtn_2.Parent = ButtonFrame_2
+PurchaseBtn_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PurchaseBtn_2.BackgroundTransparency = 1.000
+PurchaseBtn_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PurchaseBtn_2.BorderSizePixel = 0
+PurchaseBtn_2.Position = UDim2.new(-0.00940933265, 0, -0.0244636536, 0)
+PurchaseBtn_2.Size = UDim2.new(0, 120, 0, 32)
+PurchaseBtn_2.Font = Enum.Font.FredokaOne
+PurchaseBtn_2.Text = "Purchase"
+PurchaseBtn_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+PurchaseBtn_2.TextSize = 14.000
+PurchaseBtn_2.MouseButton1Click:Connect(function()
+  setclipboard("discord.gg/getfrost")
+end)
 
-  local PaypalButtonStroke = Instance.new("UIStroke")
-  PaypalButtonStroke.Name = "PaypalButtonStroke"
-  PaypalButtonStroke.Parent = PaypalButton
-  PaypalButtonStroke.Thickness = 2
-  PaypalButtonStroke.Color = Color3.fromRGB(0,0,0)
-  PaypalButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UICorner_7.Parent = ButtonFrame_2
 
+Icon_2.Name = "Icon"
+Icon_2.Parent = RightFrame
+Icon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Icon_2.BackgroundTransparency = 1.000
+Icon_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Icon_2.BorderSizePixel = 0
+Icon_2.Position = UDim2.new(0.295081973, 0, 0.0438247025, 0)
+Icon_2.Size = UDim2.new(0, 74, 0, 74)
+Icon_2.Image = "http://www.roblox.com/asset/?id=15372139193"
 
-  PaypalUICorner.CornerRadius = UDim.new(0, 6)
-  PaypalUICorner.Parent = PaypalButton
+UICorner8.CornerRadius = UDim.new(1, 0)
+UICorner8.Parent = Icon_2
 
-  PaypalGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  PaypalGradient.Parent = PaypalButton
+Currency_2.Name = "Currency"
+Currency_2.Parent = RightFrame
+Currency_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Currency_2.BackgroundTransparency = 1.000
+Currency_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Currency_2.BorderSizePixel = 0
+Currency_2.Position = UDim2.new(0.245901644, 0, 0.338645428, 0)
+Currency_2.Size = UDim2.new(0, 92, 0, 33)
+Currency_2.Font = Enum.Font.FredokaOne
+Currency_2.Text = "Paypal"
+Currency_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Currency_2.TextSize = 25.000
 
-  RobuxButton.Name = "RobuxButton"
-  RobuxButton.Parent = backframe
-  RobuxButton.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-  RobuxButton.Position = UDim2.new(0.612, 0,0.74, 0)
-  RobuxButton.Size = UDim2.new(0, 74,0, 26)
-  RobuxButton.Font = Enum.Font.GothamBold
-  RobuxButton.Text = "Robux"
-  RobuxButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxButton.TextSize = 14.000
+Cost_2.Name = "Cost"
+Cost_2.Parent = RightFrame
+Cost_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cost_2.BackgroundTransparency = 1.000
+Cost_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Cost_2.BorderSizePixel = 0
+Cost_2.Position = UDim2.new(0.245901644, 0, 0.458167344, 0)
+Cost_2.Size = UDim2.new(0, 92, 0, 33)
+Cost_2.Font = Enum.Font.FredokaOne
+Cost_2.Text = "$4.99 USD"
+Cost_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cost_2.TextSize = 25.000
 
-  RobuxButton.MouseButton1Click:Connect(function()
-    setclipboard("discord.gg/getfrost")
-  end)
+server.Name = "name"
+server.Parent = RightFrame
+server.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+server.BackgroundTransparency = 1.000
+server.ClipsDescendants = true
+server.Position = UDim2.new(0.0537015982, 0, 0.889558911, 0)
+server.Size = UDim2.new(0, 165, 0, 27)
+server.Font = Enum.Font.FredokaOne
+server.Text = "discord.gg/getfrost"
+server.TextColor3 = Color3.fromRGB(255, 255, 255)
+server.TextSize = 21.000
+server.TextXAlignment = Enum.TextXAlignment.Left
+server.TextYAlignment = Enum.TextYAlignment.Top
 
-  local RobuxButtonStroke = Instance.new("UIStroke")
-  RobuxButtonStroke.Name = "RobuxButtonStroke"
-  RobuxButtonStroke.Parent = RobuxButton
-  RobuxButtonStroke.Thickness = 2
-  RobuxButtonStroke.Color = Color3.fromRGB(0,0,0)
-  RobuxButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UIGradient4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
+UIGradient4.Parent = server
 
-  RobuxUICorner.CornerRadius = UDim.new(0, 6)
-  RobuxUICorner.Parent = RobuxButton
-
-  RobuxGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  RobuxGradient.Parent = RobuxButton
-
-  PaypalLabel.Name = "PaypalLabel"
-  PaypalLabel.Parent = backframe
-  PaypalLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalLabel.BackgroundTransparency = 1.000
-  PaypalLabel.Position = UDim2.new(0.099, 0, 0.30, 0)
-  PaypalLabel.Size = UDim2.new(0, 61,0, 22)
-  PaypalLabel.Font = Enum.Font.GothamBold
-  PaypalLabel.Text = "Via Paypal"
-  PaypalLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalLabel.TextSize = 14.000
-
-  PaypalImage.Name = "PaypalImage"
-  PaypalImage.Parent = backframe
-  PaypalImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalImage.BackgroundTransparency = 1.000
-  PaypalImage.Position = UDim2.new(0.035, 0,0.061, 0)
-  PaypalImage.Size = UDim2.new(0, 86,0, 76)
-  PaypalImage.Image = "rbxassetid://11912374145"
-
-  PaypalPriceLabel.Name = "PaypalPriceLabel"
-  PaypalPriceLabel.Parent = backframe
-  PaypalPriceLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalPriceLabel.BackgroundTransparency = 1.000
-  PaypalPriceLabel.Position = UDim2.new(0.08, 0,0.597, 0)
-  PaypalPriceLabel.Size = UDim2.new(0, 61,0, 14)
-  PaypalPriceLabel.Font = Enum.Font.GothamBold
-  PaypalPriceLabel.Text = "$5.00"
-  PaypalPriceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  PaypalPriceLabel.TextSize = 14.000
-
-  RobuxLabel.Name = "RobuxLabel"
-  RobuxLabel.Parent = backframe
-  RobuxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxLabel.BackgroundTransparency = 1.000
-  RobuxLabel.Position = UDim2.new(0.640, 0, 0.34, 0)
-  RobuxLabel.Size = UDim2.new(0, 62, 0, 15)
-  RobuxLabel.Font = Enum.Font.GothamBold
-  RobuxLabel.Text = "Via Robux"
-  RobuxLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxLabel.TextSize = 14.000
-
-  RobuxPriceLabel.Name = "RobuxPriceLabel"
-  RobuxPriceLabel.Parent = backframe
-  RobuxPriceLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxPriceLabel.BackgroundTransparency = 1.000
-  RobuxPriceLabel.Position = UDim2.new(0.638, 0,0.595, 0)
-  RobuxPriceLabel.Size = UDim2.new(0, 61, 0, 14)
-  RobuxPriceLabel.Font = Enum.Font.GothamBold
-  RobuxPriceLabel.Text = "R$500"
-  RobuxPriceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxPriceLabel.TextSize = 14.000
-
-  RobuxImage.Name = "RobuxImage"
-  RobuxImage.Parent = backframe
-  RobuxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  RobuxImage.BackgroundTransparency = 1.000
-  RobuxImage.Position = UDim2.new(0.672, 0,0.209, 0)
-  RobuxImage.Size = UDim2.new(0, 45, 0, 40)
-  RobuxImage.Image = "rbxassetid://11912374145"
-
-  ActivatePremiumFrame.Name = "ActivatePremiumFrame"
-  ActivatePremiumFrame.Parent = PremiumFrame
-  ActivatePremiumFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-  ActivatePremiumFrame.BorderColor3 = Color3.fromRGB(16, 16, 16)
-  ActivatePremiumFrame.Position = UDim2.new(0.022, 0,0.037, 0)
-  ActivatePremiumFrame.Size = UDim2.new(0, 400,0, 94)
-
-  local ActivatePremiumFrameStroke = Instance.new("UIStroke")
-  ActivatePremiumFrameStroke.Name = "ActivatePremiumFrameStroke"
-  ActivatePremiumFrameStroke.Parent = ActivatePremiumFrame
-  ActivatePremiumFrameStroke.Thickness = 2
-  ActivatePremiumFrameStroke.Color = Color3.fromRGB(0,0,0)
-  ActivatePremiumFrameStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-  PremiumKeyInput.Name = "PremiumKeyInput"
-  PremiumKeyInput.Parent = ActivatePremiumFrame
-  PremiumKeyInput.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-  PremiumKeyInput.Position = UDim2.new(0.058, 0,0.071, 0)
-  PremiumKeyInput.Size = UDim2.new(0, 346,0, 29)
-  PremiumKeyInput.Font = Enum.Font.GothamBold
-  PremiumKeyInput.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-  PremiumKeyInput.PlaceholderText = "Enter Premium Key"
-  PremiumKeyInput.Text = ""
-  PremiumKeyInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-  PremiumKeyInput.TextSize = 14.000
-
-  local PremiumKeyInputStroke = Instance.new("UIStroke")
-  PremiumKeyInputStroke.Name = "PremiumKeyInputStroke"
-  PremiumKeyInputStroke.Parent = PremiumKeyInput
-  PremiumKeyInputStroke.Thickness = 2
-  PremiumKeyInputStroke.Color = Color3.fromRGB(0,0,0)
-  PremiumKeyInputStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-  InputUICorner.CornerRadius = UDim.new(0, 6)
-  InputUICorner.Parent = PremiumKeyInput
-
-  ActivatePremiumButton.Name = "ActivatePremiumButton"
-  ActivatePremiumButton.Parent = ActivatePremiumFrame
-  ActivatePremiumButton.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-  ActivatePremiumButton.Position = UDim2.new(0.336, 0,0.495, 0)
-  ActivatePremiumButton.Size = UDim2.new(0, 145,0, 26)
-  ActivatePremiumButton.Font = Enum.Font.GothamBold
-  ActivatePremiumButton.Text = "Activate Premium"
-  ActivatePremiumButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-  ActivatePremiumButton.TextSize = 14.000
-
-  ActivatePremiumButton.MouseButton1Click:Connect(function()
-    print("coming soon")
-    
-  end)
-
-  local ActivatePremiumButtonStroke = Instance.new("UIStroke")
-  ActivatePremiumButtonStroke.Name = "ActivatePremiumButtonStroke"
-  ActivatePremiumButtonStroke.Parent = ActivatePremiumButton
-  ActivatePremiumButtonStroke.Thickness = 2
-  ActivatePremiumButtonStroke.Color = Color3.fromRGB(0,0,0)
-  ActivatePremiumButtonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-  ActivatePremiumUICorner.CornerRadius = UDim.new(0, 6)
-  ActivatePremiumUICorner.Parent = ActivatePremiumButton
-
-  ActivatePremiumGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 255)), ColorSequenceKeypoint.new(0.30, Color3.fromRGB(32, 16, 255)), ColorSequenceKeypoint.new(0.59, Color3.fromRGB(0, 0, 127)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(17, 43, 127))}
-  ActivatePremiumGradient.Parent = ActivatePremiumButton
+UICorner9.CornerRadius = UDim.new(0, 9)
+UICorner9.Parent = RightImg
 
 
-AdminUI.Name = "AdminUI"
-AdminUI.Parent = Background
-
-MainAdminFrame.Name = "MainAdminFrame"
-MainAdminFrame.Parent = AdminUI
-MainAdminFrame.Active = true
-MainAdminFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-MainAdminFrame.BorderColor3 = Color3.fromRGB(18, 18, 18)
-MainAdminFrame.Position = UDim2.new(0.224235073, 0, 0.145412236, 0)
-MainAdminFrame.Size = UDim2.new(0, 422, 0, 293)
-MainAdminFrame.Visible = false
-MainAdminFrame.ScrollBarThickness = 7
-local stroke = Instance.new('UIStroke')
-stroke.Parent = MainAdminFrame
-stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-stroke.LineJoinMode = Enum.LineJoinMode.Round
-stroke.Thickness = 2.6
 
 OwnerUI.Name = "OwnerUI"
 OwnerUI.Parent = Background
