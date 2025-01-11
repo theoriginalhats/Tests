@@ -2008,12 +2008,9 @@ end
     local UIPadding = Instance.new("UIPadding")
     local SectionOptions = Instance.new("ScrollingFrame")
     local UIPadding_2 = Instance.new("UIPadding")
-    local btn_2 = Instance.new("TextButton")
-    local UICorner_4 = Instance.new("UICorner")
     local UIListLayout = Instance.new("UIListLayout")
     local stroke1 = Instance.new("UIStroke")
     local stroke2 = Instance.new("UIStroke")
-    local stroke3 = Instance.new("UIStroke")
     
     Frame.Parent = Page1
     Frame.Name = name
@@ -2103,8 +2100,8 @@ end
   end
   
   
-  search:GetPropertyChangedSignal("Text"):Connect(function()
-      if search.Text:len() > 0 then
+  searchbar:GetPropertyChangedSignal("Text"):Connect(function()
+      if searchbar.Text:len() > 0 then
           animate_elements(1)
   
           for _, element in SectionOptions:GetChildren() do
