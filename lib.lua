@@ -1944,7 +1944,7 @@ function SectionLib:AddSignal(title, signalname, signal)
   local TextLabel_2 = Instance.new("TextLabel")
   local Stroke = Instance.new("UIStroke")
 
-  Frame.Parent = Page1
+  Frame.Parent = Section
   Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
   Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
   Frame.BorderSizePixel = 0
@@ -2002,12 +2002,12 @@ function SectionLib:AddLabel(text)
   local Stroke = Instance.new("UIStroke")
 
 
-  Frame.Parent = Page1
+  Frame.Parent = Section
   Frame.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
   Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0596658699, 0, 0.674825191, 0)
-  Frame.Size = UDim2.new(0, 369, 0, 43)
+  Frame.Size = UDim2.new(0, 342,0, 43)
   Frame.ZIndex = 0
   
   UICorner.Parent = Frame
