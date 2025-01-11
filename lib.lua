@@ -1136,7 +1136,7 @@ searchbar:GetPropertyChangedSignal("Text"):Connect(function()
       resultsframe.Visible = true
       animate_elements(1.15)
 
-      for _, element in Background:GetChildren() do
+      for _, element in Background:GetDescendants() do
           if element:IsA("Frame") and element:FindFirstChild("Title") then
               if string.find(element.Title.Text:lower(), searchbar.Text:lower()) then
                   local yah = element:Clone()
@@ -1557,7 +1557,7 @@ function lib:CreateWindow(name)
     Section.Position = UDim2.new(0.0525059663, 0, 0.00699300691, 0)
     Section.Size = UDim2.new(0, 369, 0, 125)
     Section.AutomaticSize = Enum.AutomaticSize.XY
-    Section.ZIndex = 1
+    Section.ZIndex = 0
 
     Stroke.Parent = Section
     stroke.Thickness = .9
@@ -1729,6 +1729,7 @@ function lib:CreateWindow(name)
       background.BorderSizePixel = 0
       background.Position = UDim2.new(0.0447154455, 0, 0.328358203, 0)
       background.Size = UDim2.new(0, 340, 0, 63)
+      background.ZIndex = 0
 
       stroke.Parent = background
       stroke.Thickness = .7
@@ -1981,7 +1982,7 @@ function lib:CreateWindow(name)
         local isOpen = ScrollingFrame.Visible
         if isOpen then
             TweenService:Create(ImageLabel, TweenInfo.new(0.5), {Rotation = 89}):Play()
-            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 150, 0, 0)}):Play()
+            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5), {Size = UDim2.new(0, 132, 0, 0)}):Play()
             task.wait(0.5)
             ScrollingFrame.Visible = false
         else
@@ -2016,6 +2017,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0284552854, 0, 0.791505814, 0)
   Frame.Size = UDim2.new(0, 340, 0, 63)
+  Frame.ZIndex = 0
 
   UICorner.Parent = Frame
 
@@ -2362,6 +2364,7 @@ end
     background.BorderSizePixel = 0
     background.Position = UDim2.new(0.278776914, 0, 0.169971675, 0)
     background.Size = UDim2.new(0, 369, 0, 72)
+    background.ZIndex = 0
 
     stroke.Parent = background
     stroke.Thickness = 0.9
@@ -2480,6 +2483,7 @@ function insider:CreateToggle(name, name2, callback)
   background.BorderSizePixel = 0
   background.Position = UDim2.new(0.278, 0, 0.169, 0)
   background.Size = UDim2.new(0, 369, 0, 72)
+  background.ZIndex = 0
 
   label.Parent = background
   label.Name = "Title"
@@ -2602,6 +2606,7 @@ end
       background.BorderSizePixel = 0
       background.Position = UDim2.new(0.278776914, 0, 0.169971675, 0)
       background.Size = UDim2.new(0, 369, 0, 72)
+      background.ZIndex = 0
       UICorner.Parent = background
 
       SlideBG.Name = "SlideBG"
@@ -2927,6 +2932,7 @@ function insider:CreateLabel(text)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0596658699, 0, 0.674825191, 0)
   Frame.Size = UDim2.new(0, 369, 0, 43)
+  Frame.ZIndex = 0
   
   UICorner.Parent = Frame
   Stroke.Parent = Frame
@@ -2960,6 +2966,7 @@ function insider:CreateSignal(title, signalname, signal)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0596658699, 0, 0.430069923, 0)
   Frame.Size = UDim2.new(0, 369, 0, 53)
+  Frame.ZIndex = 0
 
   Stroke.Parent = Frame
   Stroke.Thickness = .9
@@ -3018,6 +3025,7 @@ function insider:CreateDebugger(paragraph)
   Frame.BorderSizePixel = 0
   Frame.Position = UDim2.new(0.0572792366, 0, -0.108391605, 0)
   Frame.Size = UDim2.new(0, 369, 0, 207)
+  Frame.ZIndex = 0
 
   stroke.Parent = Frame
   stroke.Thickness = .9
