@@ -1937,7 +1937,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
   )
 end
 
-function Section:AddSignal(title, signalname, signal)
+function SectionLib:AddSignal(title, signalname, signal)
   local Frame = Instance.new("Frame")
   local TextLabel = Instance.new("TextLabel")
   local UICorner = Instance.new("UICorner")
