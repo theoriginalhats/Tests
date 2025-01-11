@@ -1103,7 +1103,7 @@ local results = {}
 local currentframe = nil
 
 local function animate_elements(speed)
-  padme = UDim.new(0.6, 0)
+  padme.PaddingTop = UDim.new(0.6, 0)
 
   ts:Create(padme, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
       PaddingTop = UDim.new(0.05, 0)
