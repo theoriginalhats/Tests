@@ -1103,7 +1103,7 @@ local results = {}
 local currentframe = nil
 
 local function animate_elements(speed)
-  padme = UDim.new(0.6, 0)
+  padme.PaddingTop = UDim.new(0.6, 0)
 
   ts:Create(padme, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
       PaddingTop = UDim.new(0.05, 0)
@@ -1557,7 +1557,7 @@ function lib:CreateWindow(name)
     Section.Position = UDim2.new(0.0525059663, 0, 0.00699300691, 0)
     Section.Size = UDim2.new(0, 369, 0, 125)
     Section.AutomaticSize = Enum.AutomaticSize.XY
-    Sectio.ZIndex = 1
+    Section.ZIndex = 1
 
     Stroke.Parent = Section
     stroke.Thickness = .9
