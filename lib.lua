@@ -2092,16 +2092,40 @@ end
       searchbar.Visible = false
   end
 
-  searchbar:GetPropertyChangedSignal("Text"):Connect(function()
-
-    for _, element in SectionOptions:GetChildren() do
-      if element:IsA("Button") then
-        if not string.find(element.Text:lower(), search.Text:lower()) then
-          element.Visible = false
-        end
-    end
+  local results = {}
+  
+  local function animate_elements(speed)
+      SectionOptions:WaitForChild("UIPadding").PaddingLeft = UDim.new(0.6, 0)
+  
+      ts:Create(SectionOptions.UIPadding, TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
+          PaddingLeft = UDim.new(0.04, 0)
+      }):Play()
   end
+  
+  
+  search:GetPropertyChangedSignal("Text"):Connect(function()
+      if search.Text:len() > 0 then
+          animate_elements(1)
+  
+          for _, element in SectionOptions:GetChildren() do
+              if element:IsA("TextButton") then
+                  if not string.find(element.Text:lower(), search.Text:lower()) then
+                      element.Visible = false
+                  else
+                      table.insert(results, element.Text)
+                  end
+              end
+          end
+      else
+          table.clear(results)
+          for _, element in SectionOptions:GetChildren() do
+              if element:IsA("TextButton") then
+                      element.Visible = true
+               end
+           end
+      end
   end)
+  
 
   local Buttons = {}
 
