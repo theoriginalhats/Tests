@@ -581,6 +581,7 @@ Premium.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Premium.BorderColor3 = Color3.fromRGB(16, 16, 16)
 Premium.Position = UDim2.new(0.221223071, 0, 0.147308782, 0)
 Premium.Size = UDim2.new(0, 424, 0, 293)
+Premium.Visible = false
 
 premstroke.Parent = Premium
 premstroke.Thickness = .5
