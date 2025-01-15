@@ -1842,7 +1842,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
       end
   )
 
-  inputService.InputEnded:Connect(
+  active.InputEnded:Connect(
       function(input)
           if input.UserInputType == Enum.UserInputType.MouseButton1 then
               dragging = false
@@ -1850,7 +1850,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
       end
   )
 
-  local button = script.Parent
+  local button = active
   local userInputService = game:GetService("UserInputService")
 
   local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
@@ -2546,7 +2546,7 @@ inputService.InputEnded:Connect(function(input)
 end)
 
 
-local button = script.Parent
+local button = active
 local userInputService = game:GetService("UserInputService")
 
 local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
