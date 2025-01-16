@@ -1850,7 +1850,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
       end
   )
 
-  local button = active
+  local button =  Slider
   local userInputService = game:GetService("UserInputService")
 
   local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
@@ -1868,7 +1868,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
   end
 
   -- Note from Kingu: Handle input beginning (touch or mouse)
-  active.InputBegan:Connect(
+  userInputService.InputBegan:Connect(
       function(input, gameProcessed)
           if
               not gameProcessed and
@@ -2546,7 +2546,7 @@ inputService.InputEnded:Connect(function(input)
 end)
 
 
-local button = active
+local button = Slider
 local userInputService = game:GetService("UserInputService")
 
 local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
@@ -2558,7 +2558,7 @@ local function updatePosition(input)
 end
 
 -- Note from Kingu: Handle input beginning (touch or mouse)
-active.InputBegan:Connect(function(input, gameProcessed)
+userInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
         isDragging, dragStart, startPos = true, input.Position, button.Position
         input.Changed:Connect(function()
