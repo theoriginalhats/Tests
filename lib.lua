@@ -1850,7 +1850,7 @@ function SectionLib:AddSlider(name, min, current, max, callback)
       end
   )
 
-  local button =  Slider
+  local button = active
   local userInputService = game:GetService("UserInputService")
 
   local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
