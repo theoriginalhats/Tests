@@ -2426,7 +2426,6 @@ end
 
 
 function insider:CreateSlider(name, min, current, max, callback)
-
   callback = callback or function() end
 
   local background = Instance.new("Frame")
@@ -2443,168 +2442,87 @@ function insider:CreateSlider(name, min, current, max, callback)
 
   background.Parent = Page1
   background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
-  background.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  background.BorderSizePixel = 0
-  background.Position = UDim2.new(0.278776914, 0, 0.169971675, 0)
   background.Size = UDim2.new(0, 369, 0, 72)
   UICorner.Parent = background
 
-  SlideBG.Name = "SlideBG"
   SlideBG.Parent = background
   SlideBG.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-  SlideBG.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  SlideBG.BorderSizePixel = 0
-  SlideBG.Position = UDim2.new(0.032520324, 0, 0.75, 0)
   SlideBG.Size = UDim2.new(0, 339, 0, 7)
+  SlideBG.Position = UDim2.new(0.032, 0, 0.75, 0)
 
-  active.Name = "active"
   active.Parent = background
+  active.Size = SlideBG.Size
+  active.Position = SlideBG.Position
   active.BackgroundTransparency = 1
   active.Text = ""
-  active.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-  active.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  active.BorderSizePixel = 0
-  active.Position = UDim2.new(0.032520324, 0, 0.75, 0)
-  active.Size = UDim2.new(0, 339, 0, 7)
 
   stroke.Parent = active
-  stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-  stroke.LineJoinMode = Enum.LineJoinMode.Round
-  stroke.Thickness = .7
   stroke2.Parent = background
-  stroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-  stroke2.LineJoinMode = Enum.LineJoinMode.Round
-  stroke2.Thickness = .9
 
   label.Parent = background
-  label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  label.BackgroundTransparency = 1.000
-  label.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  label.BorderSizePixel = 0
-  label.Position = UDim2.new(0.032520324, 0, 0.213229075, 0)
-  label.Size = UDim2.new(0, 135, 0, 39)
-  label.Font = Enum.Font.GothamBold
   label.Text = name
   label.TextColor3 = Color3.fromRGB(255, 255, 255)
-  label.TextSize = 20.000
-  label.TextXAlignment = Enum.TextXAlignment.Left
+  label.TextSize = 20
+  label.Position = UDim2.new(0.032, 0, 0.213, 0)
 
   TextBox.Parent = background
-  TextBox.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-  TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  TextBox.BorderSizePixel = 0
-  TextBox.Position = UDim2.new(0, 215, 0, 7)
   TextBox.Size = UDim2.new(0, 128, 0, 32)
-  TextBox.Font = Enum.Font.GothamBold
-  TextBox.PlaceholderColor3 = Color3.fromRGB(184, 184, 184)
-  TextBox.PlaceholderText = "Numbers Only"
+  TextBox.Position = UDim2.new(0, 215, 0, 7)
   TextBox.Text = tostring(current)
-  TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-  TextBox.TextSize = 14.000
 
-  UICorner_3.CornerRadius = UDim.new(0, 5)
   UICorner_3.Parent = TextBox
 
-  Slider.Name = "Slider"
   Slider.Parent = SlideBG
-  Slider.Active = false
   Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-  Slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
-  Slider.BorderSizePixel = 0
-  Slider.Position = UDim2.new(-0.00239819544, 0, -0.0332859568, 0)
-  Slider.Selectable = false
-  Slider.Size = UDim2.new(0, 347, 0, 7)
-
-  UICorner_2.CornerRadius = UDim.new(0, 6)
   UICorner_2.Parent = Slider
 
+  local dragging = false
+  local inputService = game:GetService("UserInputService")
 
-local dragging = false
-local sliderWidth = SlideBG.AbsoluteSize.X
-local inputService = game:GetService("UserInputService")
+  local function updateSlider(value)
+      local clampedValue = math.clamp(value, min, max)
+      local proportion = (clampedValue - min) / (max - min)
+      Slider.Size = UDim2.new(proportion, 0, 1, 0)
+      TextBox.Text = tostring(math.round(clampedValue))
+      callback(clampedValue)
+  end
 
-local function updateSlider(value)
-local clampedValue = math.clamp(value, min, max)
-local proportion = (clampedValue - min) / (max - min)
-Slider.Size = UDim2.new(proportion, 0, 1, 0)
-TextBox.Text = tostring(math.round(clampedValue))
-callback(clampedValue) 
+  active.InputBegan:Connect(function(input)
+      if input.UserInputType == Enum.UserInputType.MouseButton1 then
+          dragging = true
+      end
+  end)
+
+  inputService.InputEnded:Connect(function(input)
+      if input.UserInputType == Enum.UserInputType.MouseButton1 then
+          dragging = false
+      end
+  end)
+
+  inputService.InputChanged:Connect(function(input)
+      if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+          local mousePosition = input.Position.X
+          local slideBGPosition = SlideBG.AbsolutePosition.X
+          local sliderWidth = SlideBG.AbsoluteSize.X
+          local newValue = min + ((mousePosition - slideBGPosition) / sliderWidth) * (max - min)
+          updateSlider(newValue)
+      end
+  end)
+
+  TextBox.FocusLost:Connect(function(enterPressed)
+      if enterPressed then
+          local value = tonumber(TextBox.Text)
+          if value then
+              updateSlider(value)
+          else
+              TextBox.Text = tostring(current)
+          end
+      end
+  end)
+
+  updateSlider(current)
 end
 
-active.InputBegan:Connect(function(input)
-if input.UserInputType == Enum.UserInputType.MouseButton1 then
-    dragging = true
-end
-end)
-
-inputService.InputEnded:Connect(function(input)
-if input.UserInputType == Enum.UserInputType.MouseButton1 then
-    dragging = false
-end
-end)
-
-
-local button = script.Parent
-local userInputService = game:GetService("UserInputService")
-
-local isDragging, dragStart, startPos = false, Vector2.new(), UDim2.new()
-
--- Note from Kingu: Function to update the position of the GUI element
-local function updatePosition(input)
-local delta = input.Position - dragStart
-button.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-end
-
--- Note from Kingu: Handle input beginning (touch or mouse)
-active.InputBegan:Connect(function(input, gameProcessed)
-if not gameProcessed and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-    isDragging, dragStart, startPos = true, input.Position, button.Position
-    input.Changed:Connect(function()
-        if input.UserInputState == Enum.UserInputState.End then
-            isDragging = false
-        end
-    end)
-end
-end)
-
--- Note from Kingu: Handle input changes (movement)
-userInputService.InputChanged:Connect(function(input)
-if isDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-    updatePosition(input)
-end
-end)
-
--- Note from Kingu: Handle input end (release)
-userInputService.InputEnded:Connect(function(input)
-if isDragging and input.UserInputState == Enum.UserInputState.End then
-    isDragging = false
-end
-end)
-
-
-
-inputService.InputChanged:Connect(function(input)
-if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-    local mousePosition = input.Position.X
-    local slideBGPosition = SlideBG.AbsolutePosition.X
-    local newValue = min + ((mousePosition - slideBGPosition) / sliderWidth) * (max - min)
-    updateSlider(newValue)
-end
-end)
-
-updateSlider(current)
-
-TextBox.FocusLost:Connect(function(enterPressed)
-if enterPressed then
-    local value = tonumber(TextBox.Text)
-    if value then
-        updateSlider(value)
-    else
-        TextBox.Text = tostring(current)
-    end
-end
-end)
-end
 
 function insider:CreateDropdown(name, options, callback)
     callback = callback or function() end
