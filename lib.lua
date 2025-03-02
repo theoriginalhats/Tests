@@ -328,7 +328,7 @@ background.Parent = rankholder
 background.BackgroundColor3 = Color3.fromRGB(14, 14, 14)
 background.BorderColor3 = Color3.fromRGB(14, 14, 14)
 background.Position = UDim2.new(0.056910336, 0, 0.444444448, 0)
-background.Size = UDim2.new(0, 132, 0, 32)
+background.Size = UDim2.new(0, 148,0, 300)
 
 value.Name = "value"
 value.Parent = background
@@ -493,7 +493,7 @@ annnclogsholder.Active = true
 annnclogsholder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 annnclogsholder.BorderColor3 = Color3.fromRGB(18, 18, 18)
 annnclogsholder.Position = UDim2.new(0.0247109942, 0, 0.375784278, 0)
-annnclogsholder.Size = UDim2.new(0, 247, 0, 174)
+annnclogsholder.Size = UDim2.new(0, 283,0, 199)
 annnclogsholder.ScrollBarThickness = 7
 
 Announce.Name = "Announce"
@@ -523,7 +523,7 @@ accholder.Parent = Home
 accholder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 accholder.BorderColor3 = Color3.fromRGB(18, 18, 18)
 accholder.Position = UDim2.new(0.0138106933, 0, 0.027269423, 0)
-accholder.Size = UDim2.new(0, 218, 0, 87)
+accholder.Size = UDim2.new(0, 282,0, 90)
 
 pfp.Name = "pfp"
 pfp.Parent = accholder
