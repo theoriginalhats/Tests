@@ -156,11 +156,12 @@ cerner.Parent = Toggle
 
 Background.Name = "Background"
 Background.Parent = Frostware
-Background.ClipsDescendants = true
-Background.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Background.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
 Background.BorderColor3 = Color3.fromRGB(16, 16, 16)
-Background.Position = UDim2.new(0, 186,0, 19)
-Background.Size = UDim2.new(0, 556, 0, 353)
+Background.ClipsDescendants = true
+Background.Position = UDim2.new(0.147711709, 0, 0.0713012516, 0)
+Background.Size = UDim2.new(0.769120574, 0, 0.85561496, 0)
+Background.ZIndex = 0
 local closed = false
 uis.InputBegan:Connect(function(inp, gpe)
   if gpe then return end
@@ -292,10 +293,13 @@ UIListLayout.Padding = UDim.new(0, 10)
 Home.Name = "Home"
 Home.Parent = Background
 Home.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Home.BackgroundTransparency = 1.000
 Home.BorderColor3 = Color3.fromRGB(16, 16, 16)
-Home.Position = UDim2.new(0.221223071, 0, 0.147308782, 0)
-Home.Size = UDim2.new(0, 424, 0, 293)
-Home.Visible = true
+Home.LayoutOrder = 1
+Home.Position = UDim2.new(0.282000005, 0, 0.152502343, 0)
+Home.Size = UDim2.new(0, 379, 0, 287)
+Home.Visible = false
+Home.ZIndex = 10
 local stroke = Instance.new('UIStroke')
 stroke.Parent = Home
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -308,7 +312,7 @@ dcrankandstatholder.Name = "dcrankandstatholder"
 dcrankandstatholder.Parent = Home
 dcrankandstatholder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 dcrankandstatholder.BorderColor3 = Color3.fromRGB(18, 18, 18)
-dcrankandstatholder.Position = UDim2.new(0.617443502, 0, 0.0374460071, 0)
+dcrankandstatholder.Position = UDim2.new(0.596924484, 0, 0.027269423, 0)
 dcrankandstatholder.Size = UDim2.new(0, 148, 0, 273)
 
 rankholder.Name = "rankholder"
@@ -498,7 +502,7 @@ Announce.BackgroundTransparency = 1.000
 Announce.Position = UDim2.new(0.0601664558, 0, 0.0238012057, 0)
 Announce.Size = UDim2.new(0, 200, 0, 102)
 Announce.Font = Enum.Font.GothamBold
-Announce.Text = "Announcements:"
+Announce.Text = "Developer Announcement:\\n\\nfrostware on top\\n"
 Announce.TextColor3 = Color3.fromRGB(255, 255, 255)
 Announce.TextSize = 14.000
 Announce.TextXAlignment = Enum.TextXAlignment.Left
@@ -517,17 +521,16 @@ accholder.Name = "accholder"
 accholder.Parent = Home
 accholder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 accholder.BorderColor3 = Color3.fromRGB(18, 18, 18)
-accholder.Position = UDim2.new(0.0223413259, 0, 0.0374460071, 0)
-accholder.Size = UDim2.new(0, 248, 0, 92)
-
+accholder.Position = UDim2.new(0.0138106933, 0, 0.027269423, 0)
+accholder.Size = UDim2.new(0, 218, 0, 87)
 
 pfp.Name = "pfp"
 pfp.Parent = accholder
 pfp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 pfp.BackgroundTransparency = 1.000
-pfp.Position = UDim2.new(0.0326613151, 0, 0.0652173907, 0)
-pfp.Size = UDim2.new(0, 80, 0, 80)
-pfp.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+pfp.Position = UDim2.new(0.0285629518, 0, 0.0416880883, 0)
+pfp.Size = UDim2.new(0, 79, 0, 79)
+pfp.Image = "rbxthumb://type=AvatarHeadShot&id=820532103&w=100&h=100"
 local stroke = Instance.new('UIStroke')
 stroke.Parent = pfp
 stroke.Color = Color3.fromRGB(14,14,14)
@@ -542,14 +545,14 @@ display.Name = "display"
 display.Parent = accholder
 display.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 display.BackgroundTransparency = 1.000
-display.BorderColor3 = Color3.fromRGB(27, 42, 53)
-display.Position = UDim2.new(0.383629084, 0, 0.0652173907, 0)
-display.Size = UDim2.new(0, 132, 0, 34)
+display.Position = UDim2.new(0.420326442, 0, 0.0652175024, 0)
+display.Size = UDim2.new(0, 129, 0, 28)
 display.Font = Enum.Font.FredokaOne
-display.Text = "user"
+display.Text = "zleak"
 display.TextColor3 = Color3.fromRGB(255, 255, 255)
-display.TextSize = 32.000
 display.TextScaled = true
+display.TextSize = 32.000
+display.TextWrapped = true
 display.TextXAlignment = Enum.TextXAlignment.Left
 display.TextYAlignment = Enum.TextYAlignment.Top
 
@@ -560,14 +563,14 @@ realuser.Name = "realuser"
 realuser.Parent = accholder
 realuser.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 realuser.BackgroundTransparency = 1.000
-realuser.BorderColor3 = Color3.fromRGB(27, 42, 53)
-realuser.Position = UDim2.new(0.383629084, 0, 0.391304344, 0)
-realuser.Size = UDim2.new(0, 132, 0, 34)
+realuser.Position = UDim2.new(0.420326442, 0, 0.356010169, 0)
+realuser.Size = UDim2.new(0, 129, 0, 34)
 realuser.Font = Enum.Font.FredokaOne
-realuser.Text = "@user"
+realuser.Text = "@XxProFIATHGuyxX"
 realuser.TextColor3 = Color3.fromRGB(255, 255, 255)
-realuser.TextSize = 22.000
 realuser.TextScaled = true
+realuser.TextSize = 45.000
+realuser.TextWrapped = true
 realuser.TextXAlignment = Enum.TextXAlignment.Left
 realuser.TextYAlignment = Enum.TextYAlignment.Top
 
@@ -855,13 +858,12 @@ UIGradient_7.Parent = name
 btnholder.Name = "btnholder"
 btnholder.Parent = MainUI
 btnholder.Active = true
-btnholder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-btnholder.BackgroundTransparency = 1.000
-btnholder.BorderColor3 = Color3.fromRGB(18, 18, 18)
-btnholder.Position = UDim2.new(0.0143884895, 0, 0.147308782, 0)
-btnholder.Size = UDim2.new(0, 110, 0, 292)
+btnholder.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+btnholder.BorderColor3 = Color3.fromRGB(8, 8, 8)
+btnholder.Position = UDim2.new(0.0143885035, 0, 0.152502343, 0)
+btnholder.Size = UDim2.new(0, 136, 0, 288)
 btnholder.CanvasSize = UDim2.new(0, 0, 1.79999995, 0)
-btnholder.ScrollBarThickness = 6
+btnholder.ScrollBarThickness = 4
 local stroke = Instance.new('UIStroke')
 stroke.Parent = btnholder
 stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -872,8 +874,7 @@ homebtn.Name = "homebtn"
 homebtn.Parent = btnholder
 homebtn.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
 homebtn.BorderColor3 = Color3.fromRGB(33, 33, 33)
-homebtn.Position = UDim2.new(0.0727272779, 0, 0.146272883, 0)
-homebtn.Size = UDim2.new(0, 82, 0, 50)
+homebtn.Size = UDim2.new(0, 116, 0, 25)
 homebtn.Font = Enum.Font.GothamBold
 homebtn.Text = "Home"
 homebtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -885,6 +886,15 @@ homebtn.MouseButton1Down:Connect(function()
     end
   end
     Frostware:WaitForChild('Background'):WaitForChild('Home').Visible = true
+    local TweenService = game:GetService("TweenService")
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+
+    local tween = TweenService:Create(gradient, tweenInfo, {Offset = Vector2.new(1, 0)}) -- Moves gradient to the right
+    tween:Play()
+
+    tween.Completed:Connect(function()
+        gradient.Offset = Vector2.new(0.488, 0) -- Resets to the original position
+    end)
 end)
 local stroke = Instance.new('UIStroke')
 stroke.Parent = homebtn
