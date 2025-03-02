@@ -579,6 +579,7 @@ UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fr
 UIGradient_5.Parent = realuser
 
 Premium.Name = "Premium"
+Premium.BackgroundTransparency = 1
 Premium.Parent = Background
 Premium.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Premium.BorderColor3 = Color3.fromRGB(16, 16, 16)
@@ -1253,6 +1254,7 @@ function lib:CreateWindow(name)
   pad.PaddingTop = UDim.new(0,6)
   pad.PaddingBottom = UDim.new(0,15)
   UICorner5.Parent = Page1
+  Page1.BackgroundTransparency = 1
   Page1.Name = name
   Page1.Parent = Background
   Page1.Active = true
