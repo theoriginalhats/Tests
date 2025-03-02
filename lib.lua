@@ -160,7 +160,7 @@ Background.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
 Background.BorderColor3 = Color3.fromRGB(16, 16, 16)
 Background.ClipsDescendants = true
 Background.Position = UDim2.new(0.147711709, 0, 0.0713012516, 0)
-Background.Size = UDim2.new(0.46, 0,0.496, 0)
+Background.Size = UDim2.new(0.46, 0,0.566, 0)
 Background.ZIndex = 0
 local closed = false
 uis.InputBegan:Connect(function(inp, gpe)
@@ -1267,6 +1267,7 @@ function lib:CreateWindow(name)
   Page1.Visible = false
 
   local stroke = Instance.new('UIStroke')
+  stroke.Enabled = false
   stroke.Parent = Page1
   stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
   stroke.LineJoinMode = Enum.LineJoinMode.Round
