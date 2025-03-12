@@ -9,11 +9,12 @@ local ESP = {
     TeamMates = true,
     Players = true,
     Distance = false,
+    Method = "Label",
     Objects = setmetatable({}, {__mode = "kv"}),
 }
 
 local ESPFolder = Instance.new("Folder")
-ESPFolder.Name = "Zleaks Folder"
+ESPFolder.Name = "ESP Holder"
 ESPFolder.Parent = game.CoreGui
 
 local PlayersFolder = Instance.new("Folder")
@@ -78,9 +79,29 @@ local function UpdateESP()
     end
 end
 
+local function AddPlayerESP(player)
+    if ESP.Players and player ~= game.Players.LocalPlayer and player.Character then
+        local root = player.Character:FindFirstChild("HumanoidRootPart")
+        if root then
+            AddEsp(root, ESP.Method, "Player")
+        end
+    end
+end
+
 ESP.Toggle = function(state)
     ESP.Enabled = state
     if state then
+        for _, player in pairs(game.Players:GetPlayers()) do
+            AddPlayerESP(player)
+        end
+
+        game.Players.PlayerAdded:Connect(function(player)
+            player.CharacterAdded:Connect(function()
+                task.wait(1)
+                AddPlayerESP(player)
+            end)
+        end)
+        
         task.spawn(UpdateESP)
     else
         for _, v in pairs(ESP.Objects) do
